@@ -6,8 +6,8 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=EDGE">
 	<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
 	<title>商家入驻申请</title>
-    <link rel="stylesheet" type="text/css" href="css/webbase.css" />
-    <link rel="stylesheet" type="text/css" href="css/pages-register.css" />
+    <link rel="stylesheet" type="text/css" href="/seller/css/webbase.css" />
+    <link rel="stylesheet" type="text/css" href="/seller/css/pages-register.css" />
 </head>
 
 <body>
@@ -18,7 +18,7 @@
 		</div>
 		<!--register-->
 		<div class="registerArea">
-			<h3>商家入驻申请<span class="go">我有账号，去<a href="shoplogin.html" target="_blank">登陆</a></span></h3>
+			<h3>商家入驻申请<span class="go">我有账号，去<a href="/seller/shoplogin" target="_self">登陆</a></span></h3>
 			<div class="info">
 				<form class="sui-form form-horizontal">
 				

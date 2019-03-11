@@ -9,16 +9,16 @@
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" name="viewport">
     <!-- 页面meta /-->
-    <link rel="stylesheet" href="../plugins/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../plugins/adminLTE/css/AdminLTE.css">
-    <link rel="stylesheet" href="../plugins/adminLTE/css/skins/_all-skins.min.css">
+    <link rel="stylesheet" href="/seller/plugins/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/seller/plugins/adminLTE/css/AdminLTE.css">
+    <link rel="stylesheet" href="/seller/plugins/adminLTE/css/skins/_all-skins.min.css">
     <link rel="stylesheet" href="../css/style.css">
     
-    <script src="../plugins/jQuery/jquery-2.2.3.min.js"></script>
-    <script src="../plugins/jQueryUI/jquery-ui.min.js"></script>
-    <script src="../plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/seller/plugins/jQuery/jquery-2.2.3.min.js"></script>
+    <script src="/seller/plugins/jQueryUI/jquery-ui.min.js"></script>
+    <script src="/seller/plugins/bootstrap/js/bootstrap.min.js"></script>
   
-    <script src="../plugins/adminLTE/js/app.min.js"></script>
+    <script src="/seller/plugins/adminLTE/js/app.min.js"></script>
     
 
     
@@ -42,7 +42,7 @@
         <!-- 页面头部 -->
         <header class="main-header">
             <!-- Logo -->
-            <a href="index.html" class="logo">
+            <a href="/seller/index" class="logo">
                 <!-- mini logo for sidebar mini 50x50 pixels -->
                 <span class="logo-mini"><b>品优购</b></span>
                 <!-- logo for regular state and mobile devices -->
@@ -72,7 +72,7 @@
                                             <!-- start message -->
                                             <a href="#">
                                                 <div class="pull-left">
-                                                    <img src="../img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                                                    <img src="/seller/img/user2-160x160.jpg" class="img-circle" alt="User Image">
                                                 </div>
                                                 <h4>
                                                     系统消息
@@ -85,7 +85,7 @@
                                         <li>
                                             <a href="#">
                                                 <div class="pull-left">
-                                                    <img src="../img/user3-128x128.jpg" class="img-circle" alt="User Image">
+                                                    <img src="/seller/img/user3-128x128.jpg" class="img-circle" alt="User Image">
                                                 </div>
                                                 <h4>
                                                     团队消息
@@ -97,7 +97,7 @@
                                         <li>
                                             <a href="#">
                                                 <div class="pull-left">
-                                                    <img src="../img/user4-128x128.jpg" class="img-circle" alt="User Image">
+                                                    <img src="/seller/img/user4-128x128.jpg" class="img-circle" alt="User Image">
                                                 </div>
                                                 <h4>
                                                     Developers
@@ -109,7 +109,7 @@
                                         <li>
                                             <a href="#">
                                                 <div class="pull-left">
-                                                    <img src="../img/user3-128x128.jpg" class="img-circle" alt="User Image">
+                                                    <img src="/seller/img/user3-128x128.jpg" class="img-circle" alt="User Image">
                                                 </div>
                                                 <h4>
                                                     Sales Department
@@ -121,7 +121,7 @@
                                         <li>
                                             <a href="#">
                                                 <div class="pull-left">
-                                                    <img src="../img/user4-128x128.jpg" class="img-circle" alt="User Image">
+                                                    <img src="/seller/img/user4-128x128.jpg" class="img-circle" alt="User Image">
                                                 </div>
                                                 <h4>
                                                     Reviewers
@@ -257,13 +257,13 @@
                         <!-- User Account: style can be found in dropdown.less -->
                         <li class="dropdown user user-menu">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <img src="../img/user2-160x160.jpg" class="user-image" alt="User Image">
+                                <img src="/seller/img/user2-160x160.jpg" class="user-image" alt="User Image">
                                 <span class="hidden-xs">chendahai</span>
                             </a>
                             <ul class="dropdown-menu">
                                 <!-- User image -->
                                 <li class="user-header">
-                                    <img src="../img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                                    <img src="/seller/img/user2-160x160.jpg" class="img-circle" alt="User Image">
 
                                     <p>
                                        chendahai 
@@ -274,10 +274,10 @@
                                 <!-- Menu Footer-->
                                 <li class="user-footer">
                                     <div class="pull-left">
-                                        <a href="#" class="btn btn-default btn-flat">修改密码</a>
+                                        <a href="/seller/password" class="btn btn-default btn-flat">修改密码</a>
                                     </div>
                                     <div class="pull-right">
-                                        <a href="#" class="btn btn-default btn-flat">注销</a>
+                                        <a href="/seller/shoplogin" class="btn btn-default btn-flat">注销</a>
                                     </div>
                                 </li>
                             </ul>
@@ -296,7 +296,7 @@
                 <!-- Sidebar user panel -->
                 <div class="user-panel">
                     <div class="pull-left image">
-                        <img src="../img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                        <img src="/seller/img/user2-160x160.jpg" class="img-circle" alt="User Image">
                     </div>
                     <div class="pull-left info">
                         <p> chendahai</p>
@@ -305,7 +305,7 @@
                 </div>
                 <ul class="sidebar-menu"  >
                     <li class="header">菜单</li>
-                    <li id="admin-index"><a href="index.html"><i class="fa fa-dashboard"></i> <span>首页</span></a></li>
+                    <li id="admin-index"><a href="/seller/index"><i class="fa fa-dashboard"></i> <span>首页</span></a></li>
 
 				    <!-- 菜单 -->
 				    <li class="treeview">
@@ -319,19 +319,19 @@
 				        <ul class="treeview-menu">
 				
 				            <li id="admin-login">
-				                <a href="seller.html" target="iframe">
+				                <a href="/seller/seller" target="iframe">
 				                    <i class="fa fa-circle-o"></i> 修改资料
 				                </a>
 				            </li>
 							<li id="admin-login">
-				                <a href="password.html" target="iframe">
+				                <a href="/seller/password" target="iframe">
 				                    <i class="fa fa-circle-o"></i> 修改密码
 				                </a>
 				            </li>
 				        </ul>                        
 				    </li>
 					<li class="treeview">
-				        <a href="#">
+				        <a href="/seller/goods">
 				            <i class="fa fa-folder"></i> 
 				            <span>商品管理</span>
 				            <span class="pull-right-container">
@@ -341,12 +341,12 @@
 				        <ul class="treeview-menu">
 				
 				            <li id="admin-login">
-				                <a href="goods_edit.html" target="iframe">
+				                <a href="/seller/goods_edit" target="iframe">
 				                    <i class="fa fa-circle-o"></i> 新增商品
 				                </a>
 				            </li>
 							<li id="admin-login">
-				                <a href="goods.html" target="iframe">
+				                <a href="/seller/goods" target="iframe">
 				                    <i class="fa fa-circle-o"></i> 商品管理
 				                </a>
 				            </li>
@@ -364,7 +364,7 @@
         <!-- 内容区域 -->
         <div class="content-wrapper">
 			<iframe width="100%" id="iframe" name="iframe"	onload="SetIFrameHeight()" 
-					frameborder="0" src="home.html"></iframe>
+					frameborder="0" src="/seller/home"></iframe>
  
         </div>
         <!-- 内容区域 /-->

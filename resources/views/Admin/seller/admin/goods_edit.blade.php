@@ -9,17 +9,17 @@
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" name="viewport">
   
-    <link rel="stylesheet" href="../plugins/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../plugins/adminLTE/css/AdminLTE.css">
-    <link rel="stylesheet" href="../plugins/adminLTE/css/skins/_all-skins.min.css">
-    <link rel="stylesheet" href="../css/style.css">
-	<script src="../plugins/jQuery/jquery-2.2.3.min.js"></script>
-    <script src="../plugins/bootstrap/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="/seller/plugins/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/seller/plugins/adminLTE/css/AdminLTE.css">
+    <link rel="stylesheet" href="/seller/plugins/adminLTE/css/skins/_all-skins.min.css">
+    <link rel="stylesheet" href="/seller/css/style.css">
+	<script src="/seller/plugins/jQuery/jquery-2.2.3.min.js"></script>
+    <script src="/seller/plugins/bootstrap/js/bootstrap.min.js"></script>
     
     <!-- 富文本编辑器 -->
-	<link rel="stylesheet" href="../plugins/kindeditor/themes/default/default.css" />
-	<script charset="utf-8" src="../plugins/kindeditor/kindeditor-min.js"></script>
-	<script charset="utf-8" src="../plugins/kindeditor/lang/zh_CN.js"></script>
+	<link rel="stylesheet" href="/seller/plugins/kindeditor/themes/default/default.css" />
+	<script charset="utf-8" src="/seller/plugins/kindeditor/kindeditor-min.js"></script>
+	<script charset="utf-8" src="/seller/plugins/kindeditor/lang/zh_CN.js"></script>
     
     
       

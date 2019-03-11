@@ -15,7 +15,7 @@ Route::get('/', function () {
     return view('/Home/index');
 });
 //登陆页面
-Route::get('/index/login','Home\LoginController@login');
+//Route::get('/admin/login','Admin\AdminController@login');
 /*************************************运营商后台页面显示**********************************/
 //运营商后台首页 index.blade.php
 Route::get('/admin/index','Admin\AdminController@index');
@@ -40,11 +40,27 @@ Route::get('/admin/content_category','Admin\AdminController@content_category');
 //广告管理->广告管理 content
 Route::get('/admin/content','Admin\AdminController@content');
 //运营商登录页  login.blade.php
-Route::get('/admin/login','Admin\AdminController@content');
+Route::get('/admin/login','Admin\AdminController@login');
 /*************************************运营商后台页面显示**********************************/
 
 
 
 /*************商家后台页面显示***************/
-Route::get('/admin/goods','Admin\AdminController@goods');
+//首页 index.blade.php
+Route::get('/seller/index','Seller\SellerController@index');
+//品优购商家后台 home.blade.php
+Route::get('/seller/home','Seller\SellerController@home');
+//修改资料  seller.blade.php
+Route::get('/seller/seller','Seller\SellerController@seller');
+//修改密码 password.blade.php
+Route::get('/seller/password','Seller\SellerController@password');
+//新增商品  goods_edit.blade.php
+Route::get('/seller/goods_edit','Seller\SellerController@goods_edit');
+//商品管理 goods.blade.php
+Route::get('/seller/goods','Seller\SellerController@goods');
+//登录注册页面  shoplogin.blade.php
+Route::get('/seller/shoplogin','Seller\SellerController@shoplogin');
+//商家入驻 register.blade.php
+Route::get('/seller/register','Seller\SellerController@register');
+/*************商家后台页面显示***************/
 

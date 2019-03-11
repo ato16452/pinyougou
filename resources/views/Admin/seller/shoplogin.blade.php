@@ -6,10 +6,10 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=EDGE">
 	<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
 	<title>品优购，欢迎登录</title>
-	 <link rel="icon" href="assets/img/favicon.ico">
+	 <link rel="icon" href="/seller/assets/img/favicon.ico">
 
-    <link rel="stylesheet" type="text/css" href="css/webbase.css" />
-    <link rel="stylesheet" type="text/css" href="css/pages-shoplogin.css" />
+    <link rel="stylesheet" type="text/css" href="/seller/css/webbase.css" />
+    <link rel="stylesheet" type="text/css" href="/seller/css/pages-shoplogin.css" />
 </head>
 
 <body>
@@ -38,7 +38,7 @@
 					<div class="tab-content tab-wraped">
 						<div id="index" class="tab-pane">
 							<p>二维码登录，暂为官网二维码</p>
-							<img src="img/wx_cz.jpg" />
+							<img src="/seller/img/wx_cz.jpg" />
 						</div>
 						<div id="profile" class="tab-pane  active">
 							<form class="sui-form">
@@ -53,19 +53,19 @@
 									<span class="forget">忘记密码？</span>
 								</div>
 								<div class="logined">
-									<a class="sui-btn btn-block btn-xlarge btn-danger" href="admin/index.html" target="_blank">登&nbsp;&nbsp;录</a>
+									<a class="sui-btn btn-block btn-xlarge btn-danger" href="/seller/index" target="_blank">登&nbsp;&nbsp;录</a>
 								</div>
 							</form>
 							<div class="otherlogin">
 								<div class="types">
 									<ul>
-										<li><img src="img/qq.png" width="35px" height="35px" /></li>
-										<li><img src="img/sina.png" /></li>
-										<li><img src="img/ali.png" /></li>
-										<li><img src="img/weixin.png" /></li>
+										<li><img src="/seller/img/qq.png" width="35px" height="35px" /></li>
+										<li><img src="/seller/img/sina.png" /></li>
+										<li><img src="/seller/img/ali.png" /></li>
+										<li><img src="/seller/img/weixin.png" /></li>
 									</ul>
 								</div>
-								<span class="register"><a href="register.html" target="_blank">立即注册</a></span>
+								<span class="register"><a href="/seller/register" target="_blank">立即注册</a></span>
 							</div>
 						</div>
 					</div>
