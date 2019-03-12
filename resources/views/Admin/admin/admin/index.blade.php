@@ -40,7 +40,7 @@
         <!-- 页面头部 -->
         <header class="main-header">
             <!-- Logo -->
-            <a href="index.html" class="logo">
+            <a href="/admin/index" class="logo">
                 <!-- mini logo for sidebar mini 50x50 pixels -->
                 <span class="logo-mini"><b>品优购</b></span>
                 <!-- logo for regular state and mobile devices -->
@@ -256,7 +256,7 @@
                         <li class="dropdown user user-menu">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 <img src="/admin/img/user2-160x160.jpg" class="user-image" alt="User Image">
-                                <span class="hidden-xs">测试用户</span>
+                                <span class="hidden-xs">{{$val['username']}}</span>
                             </a>
                             <ul class="dropdown-menu">
                                 <!-- User image -->
@@ -264,8 +264,8 @@
                                     <img src="/admin/img/user2-160x160.jpg" class="img-circle" alt="User Image">
 
                                     <p>
-                                       测试用户 
-                                        <small>最后登录 11:20AM</small>
+                                       {{$val['username']}}
+                                        <small>最后登录 <?PHP echo date('Y-m-d H:i:s',time())?></small>
                                     </p>
                                 </li>
                                 
@@ -275,7 +275,7 @@
                                         <a href="#" class="btn btn-default btn-flat">修改密码</a>
                                     </div>
                                     <div class="pull-right">
-                                        <a href="#" class="btn btn-default btn-flat">注销</a>
+                                        <a href="/admin/login" class="btn btn-default btn-flat">注销</a>
                                     </div>
                                 </li>
                             </ul>
@@ -297,7 +297,7 @@
                         <img src="/admin/img/user2-160x160.jpg" class="img-circle" alt="User Image">
                     </div>
                     <div class="pull-left info">
-                        <p> 测试用户</p>
+                        <p> {{$val['username']}}</p>
                         <a href="#"><i class="fa fa-circle text-success"></i> 在线</a>
                     </div>
                 </div>
@@ -311,6 +311,29 @@
                     <li id="admin-index"><a href="/admin/index"><i class="fa fa-dashboard"></i> <span>首页</span></a></li>
 
 				    <!-- 菜单 -->
+                    <li class="treeview">
+                        <a href="#">
+                            <i class="fa fa-folder"></i>
+                            <span>管理员管理</span>
+                            <span class="pull-right-container">
+				       			<i class="fa fa-angle-left pull-right"></i>
+				   		 	</span>
+                        </a>
+                        <ul class="treeview-menu">
+
+                            <li id="admin-login">
+                                <a href="/admin/admin_change_message" target="iframe">
+                                    <i class="fa fa-circle-o"></i>修改资料
+                                </a>
+                            </li>
+                            <li id="admin-login">
+                                <a href="/admin/admin_change_admin" target="iframe">
+                                    <i class="fa fa-circle-o"></i>管理员管理
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
 				    <li class="treeview">
 				        <a href="#">
 				            <i class="fa fa-folder"></i> 
@@ -333,6 +356,30 @@
 				            </li>
 				        </ul>                        
 				    </li>
+
+                    <li class="treeview">
+                        <a href="#">
+                            <i class="fa fa-folder"></i>
+                            <span>用户管理</span>
+                            <span class="pull-right-container">
+				       			<i class="fa fa-angle-left pull-right"></i>
+				   		 	</span>
+                        </a>
+                        <ul class="treeview-menu">
+
+                            <li id="admin-login">
+                                <a href="/user" target="iframe">
+                                    <i class="fa fa-circle-o"></i>添加用户
+                                </a>
+                            </li>
+                            <li id="admin-login">
+                                <a href="/user/show" target="iframe">
+                                    <i class="fa fa-circle-o"></i>编辑用户
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
 					<li class="treeview">
 				        <a href="#">
 				            <i class="fa fa-folder"></i> 

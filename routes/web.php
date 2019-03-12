@@ -10,7 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-//首页
+//前台首页
 Route::get('/', function () {
     return view('/Home/index');
 });
@@ -21,10 +21,20 @@ Route::get('/', function () {
 Route::get('/admin/index','Admin\AdminController@index');
 //首页 home.blade.php
 Route::get('/admin/home','Admin\AdminController@home');
+//管理员管理  修改资料 admin_change_message.blade.php
+Route::get('/admin/admin_change_message','Admin\AdminController@admin_change_message');
+Route::post('/admin/message/{id}','Admin\AdminController@message');
+Route::get('/admin/admin_change/{id}','Admin\AdminController@admin_change');
+//管理员管理  admin_change_admin.blade.php
+Route::get('/admin/admin_change_admin','Admin\AdminController@admin_change_admin');
 //商家审核 seller_1.blade.php
-Route::get('/admin/seller_1','Admin\AdminController@seller_1');
+Route::get('/admin/seller_1','Admin\SellerController@seller_1');
 //商家管理 seller.blade.php
-Route::get('/admin/seller','Admin\AdminController@seller');
+Route::get('/admin/seller','Admin\SellerController@seller');
+
+//用户管理  添加用户
+Route::resource('user','Admin\UserController');
+
 //品牌管理  brand.blade.php
 Route::get('/admin/brand','Admin\AdminController@brand');
 //规格管理  specification.blade.php
@@ -41,6 +51,7 @@ Route::get('/admin/content_category','Admin\AdminController@content_category');
 Route::get('/admin/content','Admin\AdminController@content');
 //运营商登录页  login.blade.php
 Route::get('/admin/login','Admin\AdminController@login');
+Route::post('/admin/login_in','Admin\AdminController@login_in');
 /*************************************运营商后台页面显示**********************************/
 
 

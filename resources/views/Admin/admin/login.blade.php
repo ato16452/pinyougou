@@ -37,12 +37,13 @@
 						<img src="/admin/img/wx_cz.jpg" />
 					</div>
 					<div id="profile" class="tab-pane  active">
-						<form class="sui-form">
+						<form class="sui-form" action="/admin/login_in" method="post">
+							{{csrf_field()}}
 							<div class="input-prepend"><span class="add-on loginname"></span>
-								<input id="prependedInput" type="text" placeholder="邮箱/用户名/手机号" class="span2 input-xfat">
+								<input id="prependedInput" type="text" name="username" placeholder="管理员账号" class="span2 input-xfat">
 							</div>
 							<div class="input-prepend"><span class="add-on loginpwd"></span>
-								<input id="prependedInput" type="password" placeholder="请输入密码" class="span2 input-xfat">
+								<input id="prependedInput" type="password" name="password" placeholder="请输入密码" class="span2 input-xfat">
 							</div>
 							<div class="setting">
 								 <div id="slider">
@@ -51,7 +52,8 @@
 									</div>
 							</div>
 							<div class="logined">
-								<a class="sui-btn btn-block btn-xlarge btn-danger" href="/admin/index" target="_blank">登&nbsp;&nbsp;录</a>
+								<input type="submit" class="sui-btn btn-block btn-xlarge btn-danger" target="_blank" value="登&nbsp;&nbsp;录">
+								{{--<a class="sui-btn btn-block btn-xlarge btn-danger" href="/admin/index" target="_blank">登&nbsp;&nbsp;录</a>--}}
 							</div>
 						</form>
 
