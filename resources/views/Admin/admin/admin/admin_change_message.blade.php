@@ -92,27 +92,28 @@
                     </ul>
                 </div>
                     <!-- 选项卡开始 -->
-              <form action="/admin/message/{{$value['id']}}" method="post">
-                  {{csrf_field()}}
+
+               {{-- <form action="/admin/message" method="post">
+                    {{csrf_field()}}
                     <div id="myTabContent" class="tab-content">
                         <div class="tab-pane active in" id="home">
                             <br>
                             <table class="table table-bordered table-striped"  width="800px">
                                 <tr>
-                                    姓名:<input type="text" name="username" value="{{$value['username']}}"><br/>
-                                    密码:<input type="password" name="password" value="{{$value['password']}}"><br/>
-                                    手机号码:<input type="text" name="phone" value="{{$value['phone']}}"><br/>
-                                    email:<input type="email" name="email" value="{{$value['email']}}"><br/>
+                                    姓名:<input type="text" name="username" value="{{$value->username}}"><br/>
+                                    密码:<input type="password" name="password" value="{{$value->password}}"><br/>
+                                    手机号码:<input type="text" name="phone" value="{{$value->phone}}"><br/>
+                                    email:<input type="email" name="email" value="{{$value->email}}"><br/>
                                 </tr>
                             </table>
                         </div>
                     </div>
                     <!-- 选项卡结束 -->
-                <div class="modal-footer">
-                    <input type="submit" class="btn btn-success" onclick="return confirm('确定修改吗')"  aria-hidden="true">
-                    <button class="btn btn-default" data-dismiss="modal" aria-hidden="true">关闭</button>
-                </div>
-              </form>
+                    <div class="modal-footer">
+                        <input type="submit" class="btn btn-success" onclick="return confirm('确定修改吗')"  aria-hidden="true">
+                        <button class="btn btn-default" data-dismiss="modal" aria-hidden="true">关闭</button>
+                    </div>
+                </form>--}}
             </div>
         </div>
     </div>

@@ -33,7 +33,7 @@ Route::get('/admin/seller_1','Admin\SellerController@seller_1');
 Route::get('/admin/seller','Admin\SellerController@seller');
 
 //用户管理  添加用户
-Route::resource('user','Admin\UserController');
+Route::resource('/user','Admin\UserController');
 
 //品牌管理  brand.blade.php
 Route::get('/admin/brand','Admin\AdminController@brand');

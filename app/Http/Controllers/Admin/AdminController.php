@@ -25,13 +25,15 @@ class AdminController extends Controller
     //管理员管理
     public function admin_change_message(){
         $data =  DB::table('tb_admin_user')->get();
-        $val = json_decode($data,true);
-        return view('Admin.admin.admin.admin_change_message',['val'=>$val]);
+        $value = json_decode($data,true);
+        return view('Admin.admin.admin.admin_change_message',['val'=>$value]);
     }
     //管理员修改
     public function admin_change(Request $request,$id){
-        $val = DB::table('tb_admin_user')->get();
-        dump($val);
+        dd($id);
+        $value = DB::table('tb_admin_user')->where('id','=',$id)->first();
+        return view('Admin.admin.admin.admin_change_message',['value'=>$value]);
+
     }
 
     public function message(Request $request,$id){
@@ -43,7 +45,7 @@ class AdminController extends Controller
     }
 
     /*******SellerController*****/
-    //商家审核 seller
+    //商家审核 seller  0 未审核 1已审核 2审核未通过
     public function seller_1(){
         return view('Admin.admin.admin.seller_1');
     }

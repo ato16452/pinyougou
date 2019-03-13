@@ -27,6 +27,7 @@
         <div class="pull-left">
             <div class="form-group form-inline">
                 <div class="btn-group">
+                    <button type="button" class="btn btn-default" title="批量删除" ><i class="fa fa-trash-o"></i> 批量删除</button>
                     <button type="button" class="btn btn-default" title="删除" ><i class="fa fa-trash-o"></i> 删除</button>
                     <button type="button" class="btn btn-default" title="刷新" onclick="window.location.reload();"><i class="fa fa-refresh"></i> 刷新</button>
                 </div>
@@ -46,10 +47,11 @@
                 <th class="" style="padding-right:0px">
                     <input id="selall" type="checkbox" class="icheckbox_square-blue">
                 </th>
-                <th class="sorting_asc">品牌ID</th>
-                <th class="sorting">品牌名称</th>
-                <th class="sorting">品牌首字母</th>
-                <th class="text-center">操作</th>
+                <th class="sorting_asc">ID</th>
+                <th class="sorting">用户名</th>
+                <th class="sorting">密码</th>
+                <th class="text-center">手机号</th>
+                <th class="text-center">邮箱</th>
             </tr>
             </thead>
             <tbody>
@@ -57,6 +59,7 @@
                 <td><input  type="checkbox" ></td>
                 <td>1</td>
                 <td>联想</td>
+                <td>L</td>
                 <td>L</td>
                 <td class="text-center">
                     <button type="button" class="btn bg-olive btn-xs" data-toggle="modal" data-target="#editModal"  >修改</button>
@@ -67,6 +70,7 @@
                 <td>2</td>
                 <td>华为</td>
                 <td>H</td>
+                <td>H</td>
                 <td class="text-center">
                     <button type="button" class="btn bg-olive btn-xs" data-toggle="modal" data-target="#editModal"  >修改</button>
                 </td>
@@ -75,6 +79,7 @@
                 <td><input  type="checkbox"></td>
                 <td>3</td>
                 <td>三星</td>
+                <td>S</td>
                 <td>S</td>
                 <td class="text-center">
                     <button type="button" class="btn bg-olive btn-xs" data-toggle="modal" data-target="#editModal"  >修改</button>
@@ -113,10 +118,7 @@
                         <td>登录密码</td>
                         <td><input  type="password" name="password" class="form-control" placeholder="设置登录密码">  </td>
                     </tr>
-                    <tr>
-                        <td>确认密码</td>
-                        <td><input  type="password" name="repassword" class="form-control" placeholder="再次确认密码">  </td>
-                    </tr>
+
                     <tr>
                         <td>手机号</td>
                         <td><input type="text" name="phone"  class="form-control" placeholder="请输入用户手机号">  </td>
