@@ -82,7 +82,11 @@
 
 </div>
 <!-- /.box-body -->
-
+<script>
+   $(function () {
+       alert('11');
+   });
+</script>
 <!-- 编辑窗口 -->
 <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog" >
