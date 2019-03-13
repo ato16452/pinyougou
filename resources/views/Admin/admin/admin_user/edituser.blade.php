@@ -5,12 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>品牌管理</title>
     <meta content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" name="viewport">
-    <link rel="stylesheet" href="/admin/plugins/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/admin/plugins/adminLTE/css/AdminLTE.css">
-    <link rel="stylesheet" href="/admin/plugins/adminLTE/css/skins/_all-skins.min.css">
-    <link rel="stylesheet" href="/admin/css/style.css">
-    <script src="/admin/plugins/jQuery/jquery-2.2.3.min.js"></script>
-    <script src="/admin/plugins/bootstrap/js/bootstrap.min.js"></script>
+ @extends('Common.link');
 </head>
 <body class="hold-transition skin-red sidebar-mini">
 <!-- .box-body -->
@@ -30,6 +25,12 @@
                     <button type="button" class="btn btn-default" title="批量删除" ><i class="fa fa-trash-o"></i> 批量删除</button>
                     <button type="button" class="btn btn-default" title="删除" ><i class="fa fa-trash-o"></i> 删除</button>
                     <button type="button" class="btn btn-default" title="刷新" onclick="window.location.reload();"><i class="fa fa-refresh"></i> 刷新</button>
+                    <div class="box-tools pull-right" style="float: right;">
+                        <div class="has-feedback">
+                            <input  >
+                            <button class="btn btn-default" >查询</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -55,36 +56,19 @@
             </tr>
             </thead>
             <tbody>
+            @foreach($users as $k =>$v)
             <tr>
                 <td><input  type="checkbox" ></td>
-                <td>1</td>
-                <td>联想</td>
-                <td>L</td>
-                <td>L</td>
+                <td>{{$v->id}}</td>
+                <td>{{$v->username}}</td>
+                <td>{{$v->password}}</td>
+                <td>{{$v->phone}}</td>
+                <td>{{$v->email}}</td>
                 <td class="text-center">
                     <button type="button" class="btn bg-olive btn-xs" data-toggle="modal" data-target="#editModal"  >修改</button>
                 </td>
             </tr>
-            <tr>
-                <td><input  type="checkbox"></td>
-                <td>2</td>
-                <td>华为</td>
-                <td>H</td>
-                <td>H</td>
-                <td class="text-center">
-                    <button type="button" class="btn bg-olive btn-xs" data-toggle="modal" data-target="#editModal"  >修改</button>
-                </td>
-            </tr>
-            <tr>
-                <td><input  type="checkbox"></td>
-                <td>3</td>
-                <td>三星</td>
-                <td>S</td>
-                <td>S</td>
-                <td class="text-center">
-                    <button type="button" class="btn bg-olive btn-xs" data-toggle="modal" data-target="#editModal"  >修改</button>
-                </td>
-            </tr>
+                @endforeach
             </tbody>
         </table>
         <!--数据列表/-->
@@ -107,7 +91,9 @@
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                 <h3 id="myModalLabel">用户编辑</h3>
             </div>
-            <form action="/user" method="post">
+            <form action="/user/" method="post">
+                {{csrf_field()}}
+                {{method_field('PUT')}}
             <div class="modal-body">
                 <table class="table table-bordered table-striped"  width="800px">
                     <tr>

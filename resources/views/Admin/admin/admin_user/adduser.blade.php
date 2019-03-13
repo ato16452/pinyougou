@@ -24,6 +24,11 @@
         </ul>
     </div>
 @endif
+@if (session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+@endif
         <form action="/user" method="post">
             {{csrf_field()}}
             <div class="modal-body">

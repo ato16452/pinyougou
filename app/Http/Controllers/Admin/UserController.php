@@ -26,7 +26,8 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        $users = tb_user::all();
+        return view('Admin.admin.admin_user.edituser',['users'=>$users]);
     }
 
     /**
@@ -37,8 +38,7 @@ class UserController extends Controller
      */
     public function store(UserStoreRequest $request)
     {
-        $val = tb_user::all();
-        dd($val);
+
         //1.接受数据
         $data = $request->except('_token');
         //2.添加到数据库
@@ -47,8 +47,10 @@ class UserController extends Controller
         $user->password = Hash::make($request->input('password',''));
         $user->phone = $request->input('phone','');
         $user->email = $request->input('email','');
-        $user->save(); //存入到数据库,$res为布尔值
-
+        $res = $user->save(); //存入到数据库,$res为布尔值
+        if($res){
+            return redirect('/user')->with('success','添加成功');
+        }
 
     }
 

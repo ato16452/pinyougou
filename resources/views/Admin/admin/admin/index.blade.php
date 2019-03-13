@@ -373,7 +373,7 @@
                                 </a>
                             </li>
                             <li id="admin-login">
-                                <a href="/user/show" target="iframe">
+                                <a href="/user/create" target="iframe">
                                     <i class="fa fa-circle-o"></i>编辑用户
                                 </a>
                             </li>
