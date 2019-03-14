@@ -40,7 +40,8 @@ Route::post('/user/delAll','Admin\UserController@delAll');
 Route::get('/user/search','Admin\UserController@index');
 
 //品牌管理  brand.blade.php
-Route::get('/admin/brand','Admin\AdminController@brand');
+Route::resource('brand','Admin\Goods\BrandController');
+// Route::get('/admin/brand','Admin\BrandController');
 //规格管理  specification.blade.php
 Route::get('/admin/specification','Admin\AdminController@specification');
 //模板管理  type_template.blade.php
@@ -56,6 +57,9 @@ Route::get('/admin/content','Admin\AdminController@content');
 //运营商登录页  login.blade.php
 Route::get('/admin/login','Admin\AdminController@login');
 Route::post('/admin/login_in','Admin\AdminController@login_in');
+
+
+
 /*************************************运营商后台页面显示**********************************/
 
 
