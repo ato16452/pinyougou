@@ -32,8 +32,12 @@ Route::get('/admin/seller_1','Admin\SellerController@seller_1');
 //商家管理 seller.blade.php
 Route::get('/admin/seller','Admin\SellerController@seller');
 
-//用户管理  添加用户
+//用户管理  编辑用户
 Route::resource('/user','Admin\UserController');
+//批量删除用户
+Route::post('/user/delAll','Admin\UserController@delAll');
+//搜索用户
+Route::get('/user/search','Admin\UserController@index');
 
 //品牌管理  brand.blade.php
 Route::get('/admin/brand','Admin\AdminController@brand');

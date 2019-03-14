@@ -9,6 +9,8 @@ class AdminController extends Controller
 {
     //运营商后台首页
     public function index(Request $request){
+        //处理
+
         //获取session
         $val = $request->session()->get('data');
         if($val){
