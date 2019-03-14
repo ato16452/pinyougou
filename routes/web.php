@@ -35,6 +35,7 @@ Route::get('/admin/seller','Admin\SellerController@seller');
 //用户管理  添加用户
 Route::resource('user','Admin\UserController');
 
+
 //品牌管理  brand.blade.php
 Route::get('/admin/brand','Admin\AdminController@brand');
 //规格管理  specification.blade.php
@@ -49,6 +50,8 @@ Route::get('/admin/goods','Admin\AdminController@goods');
 Route::get('/admin/content_category','Admin\AdminController@content_category');
 //广告管理->广告管理 content
 Route::get('/admin/content','Admin\AdminController@content');
+//友情链接
+Route::get('/admin/link','Admin\AdminController@link');
 //运营商登录页  login.blade.php
 Route::get('/admin/login','Admin\AdminController@login');
 Route::post('/admin/login_in','Admin\AdminController@login_in');

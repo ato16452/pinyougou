@@ -81,6 +81,10 @@ class AdminController extends Controller
     public function content(){
         return view('Admin.admin.admin.content');
     }
+    //友情管理->友情链接
+    public function link(){
+        return view('Admin.admin.admin.link');
+    }
     //运营商登录
     public function login(Request $request){
         return view('Admin.admin.login');
