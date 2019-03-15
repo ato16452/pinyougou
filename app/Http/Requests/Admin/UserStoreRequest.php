@@ -27,6 +27,7 @@ class UserStoreRequest extends FormRequest
             'username' => 'required|unique:tb_user|regex:/^[a-zA-Z0-9_-]{4,16}$/',
             'password' => 'required|regex:/^[\w]{6,}$/',
             'repassword' => 'required|same:password',
+            'img' => 'required|mimes:jpeg,bmp,png,jpg|max:2048',
             'phone' => 'required|regex:/^1{1}[3-9]{1}[\d]{9}$/',
             'email' => 'required',
         ];
@@ -42,6 +43,9 @@ class UserStoreRequest extends FormRequest
             'password.regex' =>'密码不能少于6位',
             'repassword.required' =>'确认密码不能为空',
             'repassword.same' =>'两次密码不一致',
+            'img.required'=>'图片不能为空',
+            'img.mimes'=>'图片格式暂支持jpeg,bmp,png,jpg',
+            'img.max'=>'图片大小不能超过2M',
             'phone.required' =>'手机号不能为空',
             'phone.regex' =>'手机号格式不正确',
             'email.required' =>'邮箱不能为空',

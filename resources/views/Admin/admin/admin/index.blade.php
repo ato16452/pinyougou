@@ -367,13 +367,9 @@
                         </a>
                         <ul class="treeview-menu">
 
+
                             <li id="admin-login">
                                 <a href="/user" target="iframe">
-                                    <i class="fa fa-circle-o"></i>添加用户
-                                </a>
-                            </li>
-                            <li id="admin-login">
-                                <a href="/user/create" target="iframe">
                                     <i class="fa fa-circle-o"></i>编辑用户
                                 </a>
                             </li>
@@ -440,6 +436,29 @@
 				            </li>
 				        </ul>                        
 				    </li>
+
+                     <li class="treeview">
+                        <a href="#">
+                            <i class="fa fa-folder"></i>
+                            <span>友情管理</span>
+                            <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                        </a>
+                        <ul class="treeview-menu">
+
+                             <li id="admin-link">
+                                <a href="/link" target="iframe">
+                                    <i class="fa fa-circle-o"></i>友情链接
+                                </a>
+                            </li>
+
+                           
+                           
+                        </ul>
+                    </li>
+
+
 				    <!-- 菜单 /-->
 
                 </ul>

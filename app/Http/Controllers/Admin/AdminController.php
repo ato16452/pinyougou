@@ -9,6 +9,8 @@ class AdminController extends Controller
 {
     //运营商后台首页
     public function index(Request $request){
+        //处理
+
         //获取session
         $val = $request->session()->get('data');
         if($val){
@@ -82,6 +84,10 @@ class AdminController extends Controller
     //广告管理 ->广告管理
     public function content(){
         return view('Admin.admin.admin.content');
+    }
+    //友情管理->友情链接
+    public function link(){
+        return view('Admin.admin.admin.link');
     }
     //运营商登录
     public function login(Request $request){

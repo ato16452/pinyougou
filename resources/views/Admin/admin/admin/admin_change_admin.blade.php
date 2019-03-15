@@ -21,9 +21,27 @@
 <!-- .box-body -->
 <div class="box box-primary">
     <div class="box-header with-border">
-        <h3 class="box-title">修改资料</h3>
+        <h3 class="box-title">添加管理员</h3>
     </div>
+    <div class="pull-left">
+        <div class="form-group form-inline">
+            <div class="btn-group">
+                <button type="button" class="btn btn-default" onclick="delAll()" title="批量删除" ><i class="fa fa-trash-o"></i> 批量删除</button>
+                {{--<button type="button" class="btn btn-default" title="删除" ><i class="fa fa-trash-o"></i> 删除</button>--}}
+                <button type="button" class="btn btn-default" title="刷新" onclick="window.location.reload();"><i class="fa fa-refresh"></i> 刷新</button>
+                <button type="button" class="btn btn-default" title="新建" data-toggle="modal" data-target="#edit" ><i class="fa fa-file-o"></i> 新建</button>
 
+                <div class="box-tools pull-right">
+                    <div class="has-feedback">
+                        <input  >
+                        <button class="btn btn-default" >查询</button>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
     <div class="box-body">
 
         <!-- 数据表格 -->

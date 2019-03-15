@@ -32,8 +32,16 @@ Route::get('/admin/seller_1','Admin\SellerController@seller_1');
 //商家管理 seller.blade.php
 Route::get('/admin/seller','Admin\SellerController@seller');
 
-//用户管理  添加用户
+//用户管理  编辑用户
 Route::resource('/user','Admin\UserController');
+//批量删除用户
+Route::post('/user/delAll','Admin\UserController@delAll');
+//搜索用户
+Route::get('/user/search','Admin\UserController@index');
+//测试分页
+Route::get('/fenye/page','Admin\UserController@page');
+Route::get('/fenye/page_pro','Admin\UserController@page_pro');
+
 
 //品牌管理  brand.blade.php
 Route::resource('brand','Admin\Goods\BrandController');
@@ -50,6 +58,8 @@ Route::get('/admin/goods','Admin\AdminController@goods');
 Route::get('/admin/content_category','Admin\AdminController@content_category');
 //广告管理->广告管理 content
 Route::get('/admin/content','Admin\AdminController@content');
+//友情链接
+Route::resource('/link','Link\AdvertisementController');
 //运营商登录页  login.blade.php
 Route::get('/admin/login','Admin\AdminController@login');
 Route::post('/admin/login_in','Admin\AdminController@login_in');
