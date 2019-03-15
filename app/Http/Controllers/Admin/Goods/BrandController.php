@@ -13,9 +13,13 @@ class BrandController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('Admin.admin.admin.brand');
+        $search = $request->input('search','');
+        $brands = tb_brand::where('first_char','like','%'.$search.'%')->paginate(10);
+
+
+        return view('Admin.admin.admin.brand',['brands'=>$brands,'request'=>$request->all(),'search'=>$search]);
     }
 
     /**

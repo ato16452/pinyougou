@@ -49,9 +49,13 @@
             <div class="pull-left">
                 <div class="form-group form-inline">
                     <div class="btn-group">
-                        <button type="button" class="btn btn-default" title="新建" data-toggle="modal" data-target="#editModal" ><i class="fa fa-file-o"></i> 新建</button>
-                        <button type="button" class="btn btn-default" title="删除" ><i class="fa fa-trash-o"></i> 删除</button>           
+                        <button type="button" class="btn btn-default" title="新建" data-toggle="modal" data-target="#addModal" ><i class="fa fa-file-o"></i> 新建</button>
+                        <button type="button" class="btn btn-default" title="删除" ><i class="fa fa-trash-o"></i> 删除</button>
                         <button type="button" class="btn btn-default" title="刷新" onclick="window.location.reload();"><i class="fa fa-refresh"></i> 刷新</button>
+                        <form class="btn btn-default" action="/brand" method="get" style="margin-left: 690px ">
+                            <input type="text" name="search" value='{{ $search }}'>
+                            <input type="submit" value="搜索">
+                        </form>
                     </div>
                 </div>
             </div>
@@ -68,58 +72,51 @@
                             <input id="selall" type="checkbox" class="icheckbox_square-blue">
                         </th>
                         <th class="sorting_asc">品牌ID</th>
+                        <th class="sorting">品牌logo</th>
                         <th class="sorting">品牌名称</th>
                         <th class="sorting">品牌首字母</th>
                         <th class="text-center">操作</th>
                     </tr>
                 </thead>
                 <tbody>
+                    @foreach($brands as $k=>$v)
                     <tr>
                         <td>
                             <input type="checkbox" >
                         </td>
-                        <td>1</td>
-                        <td>联想</td>
-                        <td>L</td>
-                        <td class="text-center">
-                            <button type="button" class="btn bg-olive btn-xs" data-toggle="modal" data-target="#editModal" >修改</button>
+                        <td>{{ $v->id }}</td>
+                        <td></td>
+                        <td>{{ $v->name }}</td>
+                        <td>{{ $v->first_char }}</td>
+                        <td class="text-center" width="200px">
+                            <button type="button" class="btn bg-olive btn-xs" data-toggle="modal" data-target="#editModal">修改</button>
+                            <a type="button" class="btn bg-olive btn-xs" data-toggle="modal" style="background-color: #ff0000">删除</a>
                         </td>
                     </tr>
-                    <tr>
-                        <td><input  type="checkbox"></td>
-                        <td>2</td>
-                        <td>华为</td>
-                        <td>H</td>
-                        <td class="text-center">
-                            <button type="button" class="btn bg-olive btn-xs" data-toggle="modal" data-target="#editModal" >修改</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><input  type="checkbox"></td>
-                        <td>3</td>
-                        <td>三星</td>
-                        <td>S</td>
-                        <td class="text-center">
-                            <button type="button" class="btn bg-olive btn-xs" data-toggle="modal" data-target="#editModal" >修改</button>
-                        </td>
-                    </tr>
+                    @endforeach
                 </tbody>
             </table>
             <!--数据列表/-->
+            <!-- 分页 -->
+            <center>
+                <div>
+                    {{ $brands->appends($request)->links() }}
+                </div>
+            </center>
         </div>
         <!-- 数据表格 /-->
     </div>
 <!-- /.box-body -->
 
-<!-- 编辑窗口 -->
-<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<!-- 编辑新建窗口 -->
+<div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog" >
         <form action="/brand" method="post">
             {{ csrf_field()}}
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                    <h3 id="myModalLabel">品牌编辑</h3>
+                    <h3 id="myModalLabel">品牌添加</h3>
                 </div>
                 <div class="modal-body">
                     <table class="table table-bordered table-striped"  width="800px">
@@ -141,6 +138,38 @@
         </form>
     </div>
 </div>
-<!-- 编辑窗口结束 -->
+<!-- 编辑新建窗口结束 -->
+
+<!-- 编辑修改窗口 -->
+<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" >
+        <form action="/brand" method="post">
+            {{ csrf_field()}}
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h3 id="myModalLabel">品牌编辑</h3>
+                </div>
+                <div class="modal-body">
+                    <table class="table table-bordered table-striped"  width="800px">
+                        <tr>
+                            <td>品牌名称</td>
+                            <td><input class="form-control" name="name" placeholder="品牌名称" value=""></td>
+                        </tr>
+                        <tr>
+                            <td>首字母</td>
+                            <td><input class="form-control" name="first_char" placeholder="首字母" value=""></td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <input class="btn btn-success"  aria-hidden="true" type="submit" value="提交">
+                    <button class="btn btn-default" data-dismiss="modal" aria-hidden="true">关闭</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<!-- 编辑修改窗口结束 -->
 </body>
 </html>
