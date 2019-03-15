@@ -124,7 +124,7 @@
                     {{--</div>--}}
                     {{--</form>--}}
                 </div>
-                共有 <span id="tot">{{count($users)}}</span>条数据
+                共有 <span id="tot">{{count($data)}}</span>条数据
             </div>
         </div>
         <div class="box-tools pull-right">
@@ -150,8 +150,10 @@
                 <th class="text-center">操作</th>
             </tr>
             </thead>
+            <form action="" method="post" enctype="multipart/form-data">
+                {{csrf_field()}}
             <tbody>
-            @foreach($users as $k =>$v)
+            @foreach($data as $k =>$v)
             <tr id="tr{{$v->id}}">
                 <td><input  type="checkbox" value="{{$v->id}}" class="inputs"></td>
                 <td>{{$v->id}}</td>
@@ -161,14 +163,94 @@
                 <td>{{$v->phone}}</td>
                 <td>{{$v->email}}</td>
                 <td class="text-center">
-                    <button type="button" class="btn bg-olive btn-xs" data-toggle="modal" data-target="#editModal"  >修改</button>
+                    <a  href="/user/{{$v ->id}}/edit"  onclick="update(this,{{$v->id}})" class="btn bg-olive btn-xs" data-toggle="modal" data-target="#editModal"  >修改</a>
                    <a class="btn bg-olive btn-xs"    onclick="del(this,{{$v->id}})" href="javascript:;">删除</a>
                 </td>
             </tr>
                 @endforeach
             </tbody>
+            </form>
         </table>
+        {{--分页效果--}}
+    <div class="panel-footer">
+        <nav style="text-align:center;">
+            <ul class="pagination">
+                @for($i = 1 ;$i<=$page;$i++)
+                    <li ><a href="javascript:;" onclick="page1(this,{{$i}})">{{$i}}</a> </li>
+                @endfor
+            </ul>
+        </nav>
+    </div>
+        <script>
+            /*******2*****/
+            //无刷新分页 传统方式
+            function page(obj,page){
+                // alert(page);
+                //发送ajax请求 ,资源控制器index方法
+                var str = '<thead><tr> <th class="" style="padding-right:0px"><input id="selall" type="checkbox" class="icheckbox_square-blue"> </th>\n' +
+                    '<th class="sorting_asc">ID</th><th class="sorting">用户名</th><th class="sorting">密码</th><th class="sorting">图片</th><th class="text-center">手机号</th>\n' +
+                    '<th class="text-center">邮箱</th><th class="text-center">操作</th></tr></thead>';
+                $.get('/user',{'page':page},function (data) {
+               /*******2*****/
 
+               /********4******/
+                //处理数据
+                //     alert(data);  //返回的是一个对象集合
+                    for(var i = 0;i<data.length;i++){
+                    str += '<tr id="tr'+data[i].id+'">';
+                    str += '<td><input  type="checkbox" value="'+data[i].id+'" class="inputs"></td>';
+                    str += '<td>'+data[i].id+'</td>';
+                    str += '<td>'+data[i].username+'</td>';
+                    str += '<td>'+data[i].password+'</td>';
+                    str += '<td><img src="/Uploads/'+data[i].img+'" width="40px" height="20px"></td>';
+                    str += '<td>'+data[i].phone+'</td>';
+                    str += '<td>'+data[i].email+'</td>';
+                    str += '<td class="text-center">';
+                    str += '<a  href="/user/'+data[i].id+'/edit"  class="btn bg-olive btn-xs" data-toggle="modal" data-target="#editModal"  >修改</a>';
+                    str += '<a class="btn bg-olive btn-xs"    onclick="del(this,'+data[i].id+')" href="javascript:;">删除</a>';
+                    str += '</td>';
+                 str += '</tr>';
+                    }
+                /********4******/
+
+                /*****5*****/
+                //写入表格
+                $('#dataList').html(str);
+                    /*****5*****/
+                });
+            }
+
+            //无刷新分页 商业方式
+            function page1(obj,page){
+
+                $.get('/user',{'page':page},function (data) {
+                    /*******2*****/
+
+
+                    /********4******/
+                    //处理数据
+                     alert(data);
+                    /********4******/
+
+                    $('#dataList').html(data);
+                    /*****5*****/
+                    //写入表格
+
+                    /*****5*****/
+                });
+            }
+
+
+
+
+            //修改数据
+            function update(obj,id){
+                // alert(id);
+
+            }
+
+
+        </script>
         <!--数据列表/-->
     </div>
     <!-- 数据表格 /-->
@@ -251,7 +333,11 @@
                         <td>登录密码</td>
                         <td><input  type="password" name="password" class="form-control" placeholder="设置登录密码">  </td>
                     </tr>
-
+                    <tr>
+                        <td>用户图片</td>
+                        <img src="">
+                        <td><input type="file" name="img"  class="form-control" placeholder="请输入用户手机号"></td>
+                    </tr>
                     <tr>
                         <td>手机号</td>
                         <td><input type="text" name="phone"  class="form-control" placeholder="请输入用户手机号">  </td>
