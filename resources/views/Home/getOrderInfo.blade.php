@@ -7,8 +7,8 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
 	<title>结算页</title>
 
-    <link rel="stylesheet" type="text/css" href="css/webbase.css" />
-    <link rel="stylesheet" type="text/css" href="css/pages-getOrderInfo.css" />
+    <link rel="stylesheet" type="text/css" href="/style/css/webbase.css" />
+    <link rel="stylesheet" type="text/css" href="/style/css/pages-getOrderInfo.css" />
 </head>
 
 <body>
@@ -18,10 +18,10 @@
 			<div class="shortcut">
 				<ul class="fl">
 					<li class="f-item">品优购欢迎您！</li>
-					<li class="f-item">请登录　<span><a href="#">免费注册</a></span></li>
+					<li class="f-item"><a href="/login">请登录</a>　<span><a href="/register">免费注册</a></span></li>
 				</ul>
 				<ul class="fr">
-					<li class="f-item">我的订单</li>
+					<li class="f-item"><a href="/home">我的订单</a></li>
 					<li class="f-item space"></li>
 					<li class="f-item">我的品优购</li>
 					<li class="f-item space"></li>
@@ -240,7 +240,7 @@
 			<div class="fc-receiverInfo">寄送至:北京市海淀区三环内 中关村软件园9号楼 收货人：某某某 159****3201</div>
 		</div>
 		<div class="submit">
-			<a class="sui-btn btn-danger btn-xlarge" href="pay.html">提交订单</a>
+			<a class="sui-btn btn-danger btn-xlarge" href="/pay">提交订单</a>
 		</div>
 	</div>
 	<!-- 底部栏位 -->

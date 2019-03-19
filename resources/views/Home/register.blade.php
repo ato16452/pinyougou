@@ -8,19 +8,19 @@
 	<title>个人注册</title>
 
 
-    <link rel="stylesheet" type="text/css" href="css/webbase.css" />
-    <link rel="stylesheet" type="text/css" href="css/pages-register.css" />
+    <link rel="stylesheet" type="text/css" href="style/css/webbase.css" />
+    <link rel="stylesheet" type="text/css" href="style/css/pages-register.css" />
 </head>
 
 <body>
 	<div class="register py-container ">
 		<!--head-->
 		<div class="logoArea">
-			<a href="" class="logo"></a>
+			<a href="/" class="logo"></a>
 		</div>
 		<!--register-->
 		<div class="registerArea">
-			<h3>注册新用户<span class="go">我有账号，去<a href="login.html" target="_blank">登陆</a></span></h3>
+			<h3>注册新用户<span class="go">我有账号，去<a href="/login" target="_blank">登陆</a></span></h3>
 			<div class="info">
 				<form class="sui-form form-horizontal">
 					<div class="control-group">

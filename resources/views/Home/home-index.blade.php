@@ -8,8 +8,8 @@
     <title>我的订单</title>
      <link rel="icon" href="assets/img/favicon.ico">
 
-    <link rel="stylesheet" type="text/css" href="css/webbase.css" />
-    <link rel="stylesheet" type="text/css" href="css/pages-seckillOrder.css" />
+    <link rel="stylesheet" type="text/css" href="style/css/webbase.css" />
+    <link rel="stylesheet" type="text/css" href="style/css/pages-seckillOrder.css" />
 </head>
 
 <body>
@@ -23,10 +23,10 @@
 				<div class="shortcut">
 					<ul class="fl">
 						<li class="f-item">品优购欢迎您！</li>
-						<li class="f-item">请<a href="login.html" target="_blank">登录</a>　<span><a href="register.html" target="_blank">免费注册</a></span></li>
+						<li class="f-item">请<a href="/login" target="_blank">登录</a>　<span><a href="/register" target="_blank">免费注册</a></span></li>
 					</ul>
 					<ul class="fr">
-						<li class="f-item">我的订单</li>
+						<li class="f-item"><a href="/home" target="_blank">我的订单</a></li>
 						<li class="f-item space"></li>
 						<li class="f-item"><a href="home.html" target="_blank">我的品优购</a></li>
 						<li class="f-item space"></li>
@@ -86,7 +86,7 @@
 						<div class="fr shopcar">
 							<div class="show-shopcar" id="shopcar">
 								<span class="car"></span>
-								<a class="sui-btn btn-default btn-xlarge" href="cart.html" target="_blank">
+								<a class="sui-btn btn-default btn-xlarge" href="/cart" target="_blank">
 									<span>我的购物车</span>
 									<i class="shopnum">0</i>
 								</a>

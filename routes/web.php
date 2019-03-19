@@ -89,3 +89,40 @@ Route::get('/seller/shoplogin','Seller\SellerController@shoplogin');
 Route::get('/seller/register','Seller\SellerController@register');
 /*************商家后台页面显示***************/
 
+
+
+
+
+
+
+
+
+/*************前台页面显示***************/
+// 购物车
+Route::get('/cart', function () {
+    return view('/Home/cart');
+});
+// 订单提交页面
+Route::get('/getOrderInfo', function () {
+    return view('/Home/getOrderInfo');
+});
+// 订单结算
+Route::get('/pay', function () {
+    return view('/Home/pay');
+});
+// 注册
+Route::get('/register', function () {
+    return view('/Home/register');
+});
+// 登录
+Route::get('/login', function () {
+    return view('/Home/login');
+});
+// 商品详情
+Route::get('/item', function () {
+    return view('/Home/item');
+});
+// 我的订单
+Route::get('/home', function () {
+    return view('/Home/home-index');
+});

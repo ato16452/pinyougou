@@ -23,10 +23,10 @@
 				<div class="shortcut">
 					<ul class="fl">
 						<li class="f-item">品优购欢迎您！</li>
-						<li class="f-item">请<a href="/index/login" target="_blank">登录</a>　<span><a href="" target="_blank">免费注册</a></span></li>
+						<li class="f-item">请<a href="/login" target="_blank">登录</a>　<span><a href="/register" target="_blank">免费注册</a></span></li>
 					</ul>
 					<ul class="fr">
-						<li class="f-item">我的订单</li>
+						<li class="f-item"><a href="/home" target="_blank">我的订单</a></li>
 						<li class="f-item space"></li>
 						<li class="f-item"><a href=".blade.php" target="_blank">我的品优购</a></li>
 						<li class="f-item space"></li>
@@ -57,7 +57,7 @@
 			<div class="py-container">
 				<div class="yui3-g Logo">
 					<div class="yui3-u Left logoArea">
-						<a class="logo-bd" title="品优购" href="JD-index.blade.php" target="_blank"></a>
+						<a class="logo-bd" title="品优购" href="/"></a>
 					</div>
 					<div class="yui3-u Center searchArea">
 						<div class="search">
@@ -86,7 +86,7 @@
 						<div class="fr shopcar">
 							<div class="show-shopcar" id="shopcar">
 								<span class="car"></span>
-								<a class="sui-btn btn-default btn-xlarge" href="cart.blade.php" target="_blank">
+								<a class="sui-btn btn-default btn-xlarge" href="/cart" target="_blank">
 									<span>我的购物车</span>
 									<i class="shopnum">0</i>
 								</a>
@@ -679,7 +679,7 @@
 					<li class="yui3-u-1-6">
 						<dl class="picDl huozhe">
 							<dd>
-								<a href=".blade.php" class="pic"><img src="/style/img/like_02.png" alt="" /></a>
+								<a href="/item" class="pic"><img src="/style/img/like_02.png" alt="" /></a>
 								<div class="like-text">
 									<p>阳光美包新款单肩包女包时尚子母包四件套女</p>
 									<h3>¥116.00</h3>
