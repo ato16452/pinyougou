@@ -9,8 +9,8 @@
         <link rel="icon" href="/assets/img/favicon.ico">
 		
 	
-    <link rel="stylesheet" type="text/css" href="css/webbase.css" />
-    <link rel="stylesheet" type="text/css" href="css/pages-weixinpay.css" />
+    <link rel="stylesheet" type="text/css" href="/style/css/webbase.css" />
+    <link rel="stylesheet" type="text/css" href="/style/css/pages-weixinpay.css" />
 </head>
 
 	<body>
@@ -20,10 +20,10 @@
 				<div class="shortcut">
 					<ul class="fl">
 						<li class="f-item">品优购欢迎您！</li>
-						<li class="f-item">请登录　<span><a href="#">免费注册</a></span></li>
+						<li class="f-item"><a href="/login">请登录</a>　<span><a href="/register">免费注册</a></span></li>
 					</ul>
 					<ul class="fr">
-						<li class="f-item">我的订单</li>
+						<li class="f-item"><a href="/home" target="_blank">我的订单</a></li>
 						<li class="f-item space"></li>
 						<li class="f-item">我的品优购</li>
 						<li class="f-item space"></li>

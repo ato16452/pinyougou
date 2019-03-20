@@ -8,10 +8,10 @@
 	<title>产品详情页</title>
 	 <link rel="icon" href="assets/img/favicon.ico">
 
-    <link rel="stylesheet" type="text/css" href="css/webbase.css" />
-    <link rel="stylesheet" type="text/css" href="css/pages-item.css" />
-    <link rel="stylesheet" type="text/css" href="css/pages-zoom.css" />
-    <link rel="stylesheet" type="text/css" href="css/widget-cartPanelView.css" />
+    <link rel="stylesheet" type="text/css" href="style/css/webbase.css" />
+    <link rel="stylesheet" type="text/css" href="style/css/pages-item.css" />
+    <link rel="stylesheet" type="text/css" href="style/css/pages-zoom.css" />
+    <link rel="stylesheet" type="text/css" href="style/css/widget-cartPanelView.css" />
 </head>
 
 <body>
@@ -25,10 +25,10 @@
 				<div class="shortcut">
 					<ul class="fl">
 						<li class="f-item">品优购欢迎您！</li>
-						<li class="f-item">请<a href="login.html" target="_blank">登录</a>　<span><a href="register.html" target="_blank">免费注册</a></span></li>
+						<li class="f-item">请<a href="/login" target="_blank">登录</a>　<span><a href="/register" target="_blank">免费注册</a></span></li>
 					</ul>
 					<ul class="fr">
-						<li class="f-item">我的订单</li>
+						<li class="f-item"><a href="/home" target="_blank">我的订单</a></li>
 						<li class="f-item space"></li>
 						<li class="f-item"><a href="home.html" target="_blank">我的品优购</a></li>
 						<li class="f-item space"></li>
@@ -59,7 +59,7 @@
 			<div class="py-container">
 				<div class="yui3-g Logo">
 					<div class="yui3-u Left logoArea">
-						<a class="logo-bd" title="品优购" href="JD-index.html" target="_blank"></a>
+						<a class="logo-bd" title="品优购" href="/" target="_blank"></a>
 					</div>
 					<div class="yui3-u Center searchArea">
 						<div class="search">
@@ -88,7 +88,7 @@
 						<div class="fr shopcar">
 							<div class="show-shopcar" id="shopcar">
 								<span class="car"></span>
-								<a class="sui-btn btn-default btn-xlarge" href="cart.html" target="_blank">
+								<a class="sui-btn btn-default btn-xlarge" href="/cart" target="_blank">
 									<span>我的购物车</span>
 									<i class="shopnum">0</i>
 								</a>
@@ -291,7 +291,7 @@
 							<div class="fl">
 								<ul class="btn-choose unstyled">
 									<li>
-										<a href="cart.html" target="_blank" class="sui-btn  btn-danger addshopcar">加入购物车</a>
+										<a href="/cart" target="_blank" class="sui-btn  btn-danger addshopcar">加入购物车</a>
 									</li>
 								</ul>
 							</div>

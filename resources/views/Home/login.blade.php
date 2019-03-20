@@ -15,7 +15,7 @@
 	<div class="login-box">
 		<!--head-->
 		<div class="py-container logoArea">
-			<a href="" class="logo"></a>
+			<a href="/" class="logo"></a>
 		</div>
 		<!--loginArea-->
 		<div class="loginArea">
@@ -66,7 +66,7 @@
 										<li><img src="img/weixin.png" /></li>
 									</ul>
 								</div>
-								<span class="register"><a href="register.html" target="_blank">立即注册</a></span>
+								<span class="register"><a href="/register" target="_blank">立即注册</a></span>
 							</div>
 						</div>
 					</div>
