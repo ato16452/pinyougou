@@ -39,8 +39,6 @@ class UserController extends Controller
 
             //商业模式 直接返回一个页面,新建一个页面page.blade.php,把edituser页面中遍历数据的页面拷贝出来
             return view('Admin.admin.admin_user.page')->with('data',$data)->with('page',$page);
-
-
         }
         /********3******/
 
@@ -186,7 +184,7 @@ class UserController extends Controller
 //3、求总页数
         $sums = ceil($count/$rev);
 //4、求单前页
-        $page = $request->input('page'); //ajax传递过来的页数 isset($_GET['page'])
+        $page = $request->input('page'); //ajax传递过来的当前页数 isset($_GET['page'])
         if(empty($page)){
             $page = "1";
         }

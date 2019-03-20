@@ -222,20 +222,19 @@
 
             //无刷新分页 商业方式
             function page1(obj,page){
-
+                /*******2*****/
                 $.get('/user',{'page':page},function (data) {
                     /*******2*****/
 
-
                     /********4******/
                     //处理数据
-                     alert(data);
+                    //  alert(data);
                     /********4******/
 
-                    $('#dataList').html(data);
+
                     /*****5*****/
                     //写入表格
-
+                    $('#dataList').html(data);
                     /*****5*****/
                 });
             }

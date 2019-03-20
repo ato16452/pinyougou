@@ -60,11 +60,13 @@ Route::get('/admin/content_category','Admin\AdminController@content_category');
 Route::get('/admin/content','Admin\AdminController@content');
 //友情链接
 Route::resource('/link','Link\AdvertisementController');
+Route::post('/link/xiugai/{id}','Link\AdvertisementController@xiugai');
 //运营商登录页  login.blade.php
 Route::get('/admin/login','Admin\AdminController@login');
 Route::post('/admin/login_in','Admin\AdminController@login_in');
 
-
+Route::get('/l','Link\AdvertisementController@upload');
+Route::post('/l/l','Link\AdvertisementController@up');
 
 /*************************************运营商后台页面显示**********************************/
 

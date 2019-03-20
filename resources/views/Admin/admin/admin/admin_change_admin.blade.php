@@ -86,14 +86,8 @@
         </div>
         <!-- 数据表格 /-->
 
-
-
-
     </div>
     <!-- /.box-body -->
-
-
-
 
     <!-- 商家详情 -->
     <div class="modal fade" id="sellerModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
