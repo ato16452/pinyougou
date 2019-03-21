@@ -45,13 +45,20 @@ Route::get('/fenye/page_pro','Admin\UserController@page_pro');
 
 //品牌管理  brand.blade.php
 Route::resource('brand','Admin\Goods\BrandController');
+Route::get('brand_edit','Admin\Goods\BrandController@edit');
 // Route::get('/admin/brand','Admin\BrandController');
 //规格管理  specification.blade.php
-Route::get('/admin/specification','Admin\AdminController@specification');
+Route::resource('specification','Admin\Goods\SpecificationController');
+Route::get('specification_edit','Admin\Goods\SpecificationController@edit');
+// Route::get('/admin/specification','Admin\AdminController@specification');
 //模板管理  type_template.blade.php
-Route::get('/admin/type_template','Admin\AdminController@type_template');
+Route::resource('type_template','Admin\Goods\Type_templateController');
+Route::get('type_template_edit','Admin\Goods\Type_templateController@edit');
+// Route::get('/admin/type_template','Admin\AdminController@type_template');
 //分类管理  item_cat.blade.php
-Route::get('/admin/item_cat','Admin\AdminController@item_cat');
+Route::resource('item_cat','Admin\Goods\Item_catController');
+Route::get('item_cat_edit','Admin\Goods\Item_catController@edit');
+// Route::get('/admin/item_cat','Admin\AdminController@item_cat');
 //商品审核  goods.blade.php
 Route::get('/admin/goods','Admin\AdminController@goods');
 //广告管理->广告类型管理  content_category.blade.php
@@ -111,9 +118,9 @@ Route::get('/pay', function () {
     return view('/Home/pay');
 });
 // 注册
-Route::get('/register', function () {
-    return view('/Home/register');
-});
+// Route::get('/register', function () {
+//     return view('/Home/register');
+// });
 // 登录
 Route::get('/login', function () {
     return view('/Home/login');
@@ -126,3 +133,10 @@ Route::get('/item', function () {
 Route::get('/home', function () {
     return view('/Home/home-index');
 });
+
+/*************前台页面显示结束***************/
+
+
+/*************前台路由显示***************/
+Route::get('/register','Home\RegisterController@index');
+Route::post('/register/insert','Home\RegisterController@insert');

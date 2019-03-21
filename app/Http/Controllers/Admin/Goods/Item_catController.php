@@ -14,7 +14,7 @@ class Item_catController extends Controller
      */
     public function index()
     {
-        //
+        return view('Admin.admin.admin.item_cat');
     }
 
     /**
@@ -55,9 +55,9 @@ class Item_catController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit()
     {
-        //
+        return view('Admin.admin.admin.item_cat_edit');
     }
 
     /**

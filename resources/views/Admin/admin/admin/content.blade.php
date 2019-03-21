@@ -47,7 +47,6 @@
                                 </div>
                             </div>
                             <!--工具栏/-->
-
 			                  <!--数据列表-->
 			                  <table id="dataList" class="table table-bordered table-striped table-hover dataTable">
 			                      <thead>
@@ -58,22 +57,22 @@
 										  <th class="sorting_asc">广告ID</th>
 									      <th class="sorting">分类ID</th>
 									      <th class="sorting">标题</th>
-									      <th class="sorting">URL</th>		
-									      <th class="sorting">图片</th>	
-									      <th class="sorting">排序</th>		
-									      <th class="sorting">是否有效</th>											     						      							
+									      <th class="sorting">URL</th>
+									      <th class="sorting">图片</th>
+									      <th class="sorting">排序</th>
+									      <th class="sorting">是否有效</th>
 					                      <th class="text-center">操作</th>
 			                          </tr>
 			                      </thead>
 			                      <tbody>
 			                          <tr>
-			                              <td><input  type="checkbox"></td>			                              
+			                              <td><input  type="checkbox"></td>
 				                          <td>1</td>
 									      <td>1</td>
 									      <td>促销海报1</td>
 									      <td>http://wwww.hb.com/hd1.html</td>
 									      <td>
-									      	<img alt="" src="" width="100px" height="50px">
+									      <img alt="" src="" width="100px" height="50px">
 									      </td>
 									      <td>1</td>
 									      <td>有效</td>									     								     
