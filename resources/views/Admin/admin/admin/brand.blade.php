@@ -89,7 +89,7 @@
                         <td>{{ $v->name }}</td>
                         <td>{{ $v->first_char }}</td>
                         <td class="text-center" width="200px">
-                            <button type="button" class="btn bg-olive btn-xs" data-toggle="modal" data-target="#editModal">修改</button>
+                            <a href="brand_edit?id=1" class="btn bg-olive btn-xs">修改</a>
                             <a type="button" class="btn bg-olive btn-xs" data-toggle="modal" style="background-color: #ff0000">删除</a>
                         </td>
                     </tr>
@@ -139,37 +139,5 @@
     </div>
 </div>
 <!-- 编辑新建窗口结束 -->
-
-<!-- 编辑修改窗口 -->
-<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog" >
-        <form action="/brand" method="post">
-            {{ csrf_field()}}
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                    <h3 id="myModalLabel">品牌编辑</h3>
-                </div>
-                <div class="modal-body">
-                    <table class="table table-bordered table-striped"  width="800px">
-                        <tr>
-                            <td>品牌名称</td>
-                            <td><input class="form-control" name="name" placeholder="品牌名称" value=""></td>
-                        </tr>
-                        <tr>
-                            <td>首字母</td>
-                            <td><input class="form-control" name="first_char" placeholder="首字母" value=""></td>
-                        </tr>
-                    </table>
-                </div>
-                <div class="modal-footer">
-                    <input class="btn btn-success"  aria-hidden="true" type="submit" value="提交">
-                    <button class="btn btn-default" data-dismiss="modal" aria-hidden="true">关闭</button>
-                </div>
-            </div>
-        </form>
-    </div>
-</div>
-<!-- 编辑修改窗口结束 -->
 </body>
 </html>

@@ -14,7 +14,7 @@ class Type_templateController extends Controller
      */
     public function index()
     {
-        //
+        return view('Admin.admin.admin.Type_template');
     }
 
     /**
@@ -55,9 +55,9 @@ class Type_templateController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit()
     {
-        //
+        return view('Admin.admin.admin.type_template_edit');
     }
 
     /**

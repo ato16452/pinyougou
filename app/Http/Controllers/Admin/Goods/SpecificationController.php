@@ -14,7 +14,7 @@ class SpecificationController extends Controller
      */
     public function index()
     {
-        //
+        return view('Admin.admin.admin.specification');
     }
 
     /**
@@ -55,9 +55,9 @@ class SpecificationController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit()
     {
-        //
+        return view('Admin.admin.admin.specification_edit');
     }
 
     /**

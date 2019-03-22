@@ -392,22 +392,22 @@
 				                </a>
 				            </li>
 							<li id="admin-login">
-				                <a href="/admin/specification" target="iframe">
+				                <a href="/specification" target="iframe">
 				                    <i class="fa fa-circle-o"></i>规格管理
 				                </a>
 				            </li>							
 							<li id="admin-login">
-				                <a href="/admin/type_template" target="iframe">
+				                <a href="/type_template" target="iframe">
 				                    <i class="fa fa-circle-o"></i>模板管理
 				                </a>
 				            </li>
 							<li id="admin-login">
-				                <a href="/admin/item_cat" target="iframe">
+				                <a href="/item_cat" target="iframe">
 				                    <i class="fa fa-circle-o"></i>分类管理
 				                </a>
 				            </li>
 							<li id="admin-login">
-				                <a href="/admin/goods" target="iframe">
+				                <a href="/goods" target="iframe">
 				                    <i class="fa fa-circle-o"></i>商品审核
 				                </a>
 				            </li>
