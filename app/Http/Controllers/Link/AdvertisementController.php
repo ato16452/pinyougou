@@ -221,20 +221,20 @@ class AdvertisementController extends Controller
         }
     }
     public function xiugai(Request $request,$id){
-//        if ($request->method() == 'post') {
-//            $file = $request->file('file');
-//        };
-//        if ($file->isValid()) {
-//            $ext = $file->guessClientExtension(); //获取后缀
-//            $type = $file->getClientMimeType(); //后去文件类型
-//            if (in_array($ext, ['jpg', 'png', 'jpeg']) && in_array($type, ['image/jpeg', 'image/png'])) {
-//                $filename =uniqid() . '.' . $ext;
-//                $name = $file->storeAs('LinkImg', $filename);
-//                if ($name == 'LinkImg/') {
-//                    return response()->json(['result' => false, 'errMsg' => '上传文件出错']);
-//                }
-//            }
-//        }
+        if ($request->method() == 'post') {
+            $file = $request->file('file');
+        };
+        if ($file->isValid()) {
+            $ext = $file->guessClientExtension(); //获取后缀
+            $type = $file->getClientMimeType(); //后去文件类型
+            if (in_array($ext, ['jpg', 'png', 'jpeg']) && in_array($type, ['image/jpeg', 'image/png'])) {
+                $filename =uniqid() . '.' . $ext;
+                $name = $file->storeAs('LinkImg', $filename);
+                if ($name == 'LinkImg/') {
+                    return response()->json(['result' => false, 'errMsg' => '上传文件出错']);
+                }
+            }
+        }
 
 
         $tb_links = new tb_links();
@@ -245,13 +245,17 @@ class AdvertisementController extends Controller
         $linklink =  $tb_links->link = $request->input('linklink');
         $sT = $tb_links->startTime = $request->input('sT');
         $eT =  $tb_links->endTime = $request->input('eT');
-//        $path =  $tb_links->link_image = $request->input('file',$name);
+        $path =  $tb_links->link_image = $request->input('file',$name);
         //修改数据
        $data =  $tb_links::find($id); //
+        $oldimagepath = $data->link_image; //查询原图
+        unlink('Uploads/'.$oldimagepath); //删除原图
+
         $tb_links->link_name = $linkname;
         $tb_links->link = $linklink;
         $tb_links->startTime = $sT;
         $tb_links->endTime = $eT;
+        $tb_links->link_image = $path;
         $res = $tb_links->save();
         if($res){
             return 0;

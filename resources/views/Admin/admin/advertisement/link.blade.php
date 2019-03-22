@@ -127,8 +127,9 @@
             //
             str += '     <tr>';
             str += '   <td>图片</td>';
-            str +='<td><label for="pic"><img  src="/Uploads/'+data[0].link_image+'" width="50px" height="30px"></label> </td>';
-            str += '   <td><input id="pic" style="display: none;"  type="file" name="link_image" class="form-control" placeholder="">  </td>';
+            str += '<td><input id="pic"  onchange="preview1(this)"  type="file" value="选择图片" name="link_image" class="form-control" placeholder=""></td>';
+            str +='<td><label><img id="imagehidden" src="/Uploads/'+data[0].link_image+'" width="50px" height="30px" ></label> <span id="preview1"></span></td>';
+            // str += '<span id="prewiew1"></span>';
             str += '    </tr>';
             str += '    <tr>';
             str += '    <td><label for="timestart">有效期时间开始</label></td>';
@@ -188,33 +189,47 @@
             }
         });
 
-        // $.ajax({
-        //     url: '/link/'+id+'',
-        //     type: 'put',
-        //     processData: false,
-        //     contentType: false,
-        //     data: fromData,
-        //     success: function(data) {
-        //         alert(data);
-        //         if(data){
-        //             $('#tishi').html('添加成功');
-        //             //执行关闭按钮
-        //             $('#close').trigger('click');
-        //             self.location.reload(); //刷新页面
-        //
-        //         }else{
-        //             alert('添加失败');
-        //             $('#closebutton').trigger('click');
-        //         }
-        //     }
-        // });
-        {{--'id':id,'linkname':linkname,'linklink':linklink,'sT':sT,'eT':eT,'_token':'{{csrf_token()}}'--}}
-      $.post('/link/xiugai/'+id,{'file':filedata,'id':id,'linkname':linkname,'linklink':linklink,'sT':sT,'eT':eT,'_token':'{{csrf_token()}}'},function (data) {
-          if(data){
-             console.log(data);
-          }
-      });
 
+        $.ajax({
+            url: '/link/xiugai/'+id+'',
+            type: 'post',
+            processData: false,
+            contentType: false,
+            data: fromData,
+            success: function(data) {
+                alert(data);
+                if(data){
+                    $('#tishi').html('添加成功');
+                    //执行关闭按钮
+                    $('#close').trigger('click');
+                    self.location.reload(); //刷新页面
+
+                }else{
+                    alert('添加失败');
+                    $('#closebutton').trigger('click');
+                }
+            }
+        });
+        {{--'id':id,'linkname':linkname,'linklink':linklink,'sT':sT,'eT':eT,'_token':'{{csrf_token()}}'--}}
+      {{--$.post('/link/xiugai/'+id,{'file':filedata,'id':id,'linkname':linkname,'linklink':linklink,'sT':sT,'eT':eT,'_token':'{{csrf_token()}}'},function (data) {--}}
+          {{--if(data){--}}
+             {{--console.log(data);--}}
+          {{--}--}}
+      {{--});--}}
+}
+    //显示图片
+    function preview1(file){
+
+        if (file.files && file.files[0]){
+            var reader = new FileReader();
+            reader.onload = function(evt){
+                $("#preview1").html('<img src="' + evt.target.result + '" width="95px" height="50px" />');
+            }
+            reader.readAsDataURL(file.files[0]);
+        }else{
+            $("#preview1").html('<div style="filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=scale,src=\'' + file.value + '\'"></div>');
+        }
+        $('#imagehidden').hide();
     }
 </script>
 
@@ -396,11 +411,11 @@
     // var Data = new FormData(form);
     // var formData = Data.get("link_image");
     // console.log(formData);
-    $.ajaxSetup({
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        }
-    });
+    // $.ajaxSetup({
+    //     headers: {
+    //         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    //     }
+    // });
 
     {{--$("#btsubmit").submit(function () {--}}
 
