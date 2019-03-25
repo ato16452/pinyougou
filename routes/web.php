@@ -22,11 +22,21 @@ Route::get('/admin/index','Admin\AdminController@index');
 //首页 home.blade.php
 Route::get('/admin/home','Admin\AdminController@home');
 //管理员管理  修改资料 admin_change_message.blade.php
-Route::get('/admin/admin_change_message','Admin\AdminController@admin_change_message');
+//Route::get('/admin/admin_change_message','Admin\AdminController@admin_change_message');
 Route::post('/admin/message/{id}','Admin\AdminController@message');
 Route::get('/admin/admin_change/{id}','Admin\AdminController@admin_change');
 //管理员管理  admin_change_admin.blade.php
 Route::get('/admin/admin_change_admin','Admin\AdminController@admin_change_admin');
+Route::get('/admin/admin_update/{id}','Admin\AdminController@admin_update'); //管理员修改
+Route::post('/admin/adminup/{id}','Admin\AdminController@adminup'); //管理员保存修改
+Route::post('/admin/checkname','Admin\AdminController@checkname'); //管理员修改(校验名字是否重复,不包括自己)
+Route::post('/admin/adminadd','Admin\AdminController@adminadd');
+Route::post('/admin/adminadds','Admin\AdminController@adminadds');
+Route::get('/admin/admin_change_status','Admin\AdminController@admin_change_status');
+Route::get('/admin/admin_change_status2','Admin\AdminController@admin_change_status2');
+Route::get('/admin/del/{id}','Admin\AdminController@del');
+
+
 //商家审核 seller_1.blade.php
 Route::get('/admin/seller_1','Admin\SellerController@seller_1');
 //商家管理 seller.blade.php
@@ -34,6 +44,8 @@ Route::get('/admin/seller','Admin\SellerController@seller');
 
 //用户管理  编辑用户
 Route::resource('/user','Admin\UserController');
+
+
 //批量删除用户
 Route::post('/user/delAll','Admin\UserController@delAll');
 //搜索用户
@@ -67,11 +79,13 @@ Route::get('/admin/content_category','Admin\AdminController@content_category');
 Route::get('/admin/content','Admin\AdminController@content');
 //友情链接
 Route::resource('/link','Link\AdvertisementController');
+Route::post('/link/xiugai/{id}','Link\AdvertisementController@xiugai');
 //运营商登录页  login.blade.php
 Route::get('/admin/login','Admin\AdminController@login');
 Route::post('/admin/login_in','Admin\AdminController@login_in');
 
-
+Route::get('/l','Link\AdvertisementController@upload');
+Route::post('/l/l','Link\AdvertisementController@up');
 
 /*************************************运营商后台页面显示**********************************/
 
@@ -95,10 +109,6 @@ Route::get('/seller/shoplogin','Seller\SellerController@shoplogin');
 //商家入驻 register.blade.php
 Route::get('/seller/register','Seller\SellerController@register');
 /*************商家后台页面显示***************/
-
-
-
-
 
 
 

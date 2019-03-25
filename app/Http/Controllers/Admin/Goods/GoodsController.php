@@ -7,6 +7,18 @@ use App\Http\Controllers\Controller;
 
 class GoodsController extends Controller
 {
+    // public function __construct()
+    // {
+    //     $this->request = request();
+     
+    //     // 验证是否登录
+    //     $this->middleware(function ($request, $next) {
+    //         if (!\Session::get('user')) {
+    //             echo "<script>alert('请先登录!');location.href='" . url('admin/login') . "';</script>";
+    //         }
+    //         return $next($request);
+    //     });
+    // }
     /**
      * Display a listing of the resource.
      *
