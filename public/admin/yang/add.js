@@ -13,21 +13,17 @@ $(function () {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
         });
-        var check = false;
         a = false;
         var username = document.getElementById("username").value;
         $.post('/admin/adminadd',{'async':false, 'username':username},function(data){
             if(data){
                 document.getElementById("checktext1").innerHTML = ""+data;
-                check = false;
                 a = false;
             }else if(username.length > 10 || username.length < 5){
                 document.getElementById("checktext1").innerHTML = "  × 不要多于10位,不能低于六位";
-                check = false;
                 a = false;
             }else if(!data && username.length <= 10 || username.length >= 5){
                 document.getElementById("checktext1").innerHTML = "  √";
-                check = true;
                 a = true;
             }
 
@@ -37,33 +33,27 @@ $(function () {
     });
 
     $('#password').change(function () {
-        var check = false;
         b = false;
         var password = document.getElementById("password").value;
         if (password.length < 6) {
             document.getElementById("checktext2").innerHTML = "  × 不要少于6位";
-            check = false;
             b = false;
         } else {
             document.getElementById("checktext2").innerHTML = "  √";
-            check = true;
             b =true ;
         }
         return b;
     })
 
     $('#repassword').change(function () {
-        var check = false;
         c = false;
         var password = document.getElementById("password").value;
         var pwdc = document.getElementById("repassword").value;
         if (password != pwdc) {
             document.getElementById("checktext3").innerHTML = "  × 两次输入密码不一致";
-            check = false;
             c = false;
         } else {
             document.getElementById("checktext3").innerHTML = "  √";
-            check = true;
             c = true;
         }
         return c;
@@ -71,34 +61,28 @@ $(function () {
 
 
     $('#phone').change(function () {
-        var check = false;
         d =false
         var phone = document.getElementById("phone").value;
         if(!(/^1[34578]\d{9}$/.test(phone))){
             document.getElementById("checktext4").innerHTML = "手机号格式不正确";
-            return false;
-            d =false
+            d =false;
         }else{
             document.getElementById("checktext4").innerHTML = "  √";
-            check = true;
-            d =true
+            d =true;
         }
         return d;
     })
 
     $('#email').change(function () {
-        var check = false;
-        e = false
+        e = false;
         var email = document.getElementById("email").value;
         var reg = /^([a-zA-Z]|[0-9])(\w|\-)+@[a-zA-Z0-9]+\.([a-zA-Z]{2,4})$/;
         if(!reg.test(email)){
             document.getElementById("checktext5").innerHTML = "邮箱格式不正确";
-            return false;
-            e = false
+            e = false;
         }else{
             document.getElementById("checktext5").innerHTML = "  √";
-            check = true;
-            e = true
+            e = true;
         }
         return e;
     })
@@ -120,6 +104,7 @@ $(function () {
                     data: {'username': username, 'password': password, 'phone': phone, 'email': email},
                     success: function (data) {
                         if (data) {
+                         console.log(data);
                             //清空表单的值
                             $('#username').html();
                             $('#password').html();
@@ -128,7 +113,8 @@ $(function () {
                             $('#email').html();
 
                             $('#closebutton').trigger('click');
-                            $('#zhanshi').html('添加成功,刷新页面查看');
+                            $('#tihuan').html(data);
+                            $('#zhanshi').html('添加成功');
 
                         } else {
                             $('#closebutton').trigger('click');

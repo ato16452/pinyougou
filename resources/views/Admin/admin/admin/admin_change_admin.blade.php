@@ -73,7 +73,7 @@
 
             <!--数据列表-->
             <table id="dataList" class="table table-bordered table-striped table-hover dataTable">
-                <thead>
+                <thead id="tihuan">
                 <tr>
                     <th class="" style="padding-right:0px">
                         <input id="selall" type="checkbox" class="icheckbox_square-blue">
@@ -104,10 +104,14 @@
                         <a  href="/admin/admin_update/{{$v->id}}" type="button" class="btn bg-olive btn-xs" data-target="#sellerModal" >修改</a>
                         <a  href="javascript:;" id="dell" type="button" onclick="del(this,{{$v->id}})" class="btn bg-olive btn-xs" data-target="#sellerModal" >删除</a>
                     </td>
+
                 </tr>
                 @endforeach
+
                 </tbody>
+
             </table>
+
             <!--数据列表/-->
 <div>
     {{$data->links()}}

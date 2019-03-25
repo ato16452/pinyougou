@@ -28,7 +28,7 @@ Route::get('/admin/admin_change/{id}','Admin\AdminController@admin_change');
 //管理员管理  admin_change_admin.blade.php
 Route::get('/admin/admin_change_admin','Admin\AdminController@admin_change_admin');
 Route::get('/admin/admin_update/{id}','Admin\AdminController@admin_update'); //管理员修改
-Route::post('/admin/adminup','Admin\AdminController@adminup'); //管理员修改
+Route::post('/admin/adminup/{id}','Admin\AdminController@adminup'); //管理员保存修改
 Route::post('/admin/checkname','Admin\AdminController@checkname'); //管理员修改(校验名字是否重复,不包括自己)
 Route::post('/admin/adminadd','Admin\AdminController@adminadd');
 Route::post('/admin/adminadds','Admin\AdminController@adminadds');
@@ -70,6 +70,7 @@ Route::get('type_template_edit','Admin\Goods\Type_templateController@edit');
 //分类管理  item_cat.blade.php
 Route::resource('item_cat','Admin\Goods\Item_catController');
 Route::get('item_cat_edit','Admin\Goods\Item_catController@edit');
+Route::get('/item/close','Admin\Goods\Item_catController@close');
 // Route::get('/admin/item_cat','Admin\AdminController@item_cat');
 //商品审核  goods.blade.php
 Route::get('/admin/goods','Admin\AdminController@goods');

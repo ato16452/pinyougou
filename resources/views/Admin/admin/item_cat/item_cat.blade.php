@@ -1,19 +1,4 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-    <!-- 页面meta -->
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>商品分类管理</title>
-    <meta content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" name="viewport">
-    <link rel="stylesheet" href="/admin/plugins/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/admin/plugins/adminLTE/css/AdminLTE.css">
-    <link rel="stylesheet" href="/admin/plugins/adminLTE/css/skins/_all-skins.min.css">
-    <link rel="stylesheet" href="/admin/css/style.css">
-	<script src="/admin/plugins/jQuery/jquery-2.2.3.min.js"></script>
-    <script src="/admin/plugins/bootstrap/js/bootstrap.min.js"></script>
-</head>
+@include('Common.admin_header')
 
 <body class="hold-transition skin-red sidebar-mini" >
     <!-- .box-body -->
@@ -38,7 +23,7 @@
             <div class="pull-left">
                 <div class="form-group form-inline">
                     <div class="btn-group">
-                        <button type="button" class="btn btn-default" title="新建" data-toggle="modal" data-target="#editModal" ><i class="fa fa-file-o"></i> 新建</button>
+                        <button type="button" class="btn btn-default" title="新建" data-toggle="modal" data-target="#editModal" ><i class="fa fa-file-o"></i> 添加分类</button>
                         <button type="button" class="btn btn-default" title="删除" ><i class="fa fa-trash-o"></i> 删除</button>
                         <button type="button" class="btn btn-default" title="刷新" ><i class="fa fa-check"></i> 刷新</button>
                     </div>
@@ -53,44 +38,26 @@
                         </th>
                         <th class="sorting_asc">分类ID</th>
                         <th class="sorting">分类名称</th>
-                        <th class="sorting">类型模板ID</th>
+                        <th class="sorting">父类ID</th>
+                        <th class="sorting">分类路径</th>
                         <th class="text-center">操作</th>
                     </tr>
                 </thead>
                 <tbody>
+                @foreach
                     <tr >
                         <td><input  type="checkbox" ></td>
-                        <td>982</td>
-                        <td>吊坠/项链</td>
-                        <td>11</td>
+                        <td>{{$data->id}}</td>
+                        <td>{{$data->name}}</td>
+                        <td>{{$data->parent_id}}</td>
+                        <td>{{$data->path}}</td>
                         <td class="text-center">
-                            <button type="button" class="btn bg-olive btn-xs" >查询下级</button>
+                            <a type="button" href="/item_cat/create" class="btn bg-olive btn-xs" data-toggle="modal">添加子分类</a>
                             <a href="/item_cat_edit" class="btn bg-olive btn-xs">修改</a>
                             <a href="" class="btn bg-olive btn-xs" style="background-color: #ff0000">删除</a>
                         </td>
                     </tr>
-                    <tr >
-                        <td><input  type="checkbox"></td>
-                        <td>983</td>
-                        <td>手镯/手链/脚链</td>
-                        <td>11</td>
-                        <td class="text-center">
-                            <button type="button" class="btn bg-olive btn-xs" >查询下级</button>
-                            <a href="/item_cat_edit" class="btn bg-olive btn-xs">修改</a>
-                            <a href="" class="btn bg-olive btn-xs" style="background-color: #ff0000">删除</a>
-                        </td>
-                    </tr>
-                    <tr >
-                        <td><input  type="checkbox" ></td>
-                        <td>984</td>
-                        <td>戒指/耳饰</td>
-                        <td>11</td>
-                        <td class="text-center">
-                            <button type="button" class="btn bg-olive btn-xs" >查询下级</button>
-                            <a href="/item_cat_edit" class="btn bg-olive btn-xs">修改</a>
-                            <a href="" class="btn bg-olive btn-xs" style="background-color: #ff0000">删除</a>
-                        </td>
-                    </tr>
+                @endforeach
                 </tbody>
             </table>
             <!--数据列表/-->
@@ -104,7 +71,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                    <h3 id="myModalLabel">商品分类编辑</h3>
+                    <h3 id="myModalLabel">商品分类添加</h3>
                 </div>
                 <div class="modal-body">
                     <table class="table table-bordered table-striped"  width="800px">
@@ -133,5 +100,4 @@
             </div>
         </div>
     </div>
-</body>
-</html>
+@include('Common.admin_footer')

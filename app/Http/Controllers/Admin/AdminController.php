@@ -21,6 +21,7 @@ class AdminController extends Controller
         }else{
             return redirect('/admin/login');
         }
+//        return view('Admin.admin.admin.index');
 
     }
     //首页
@@ -28,67 +29,16 @@ class AdminController extends Controller
         return view('Admin.admin.admin.home');
     }
 
+    /***********************管理员管理 增删改查**************************/
     //管理员管理(展示)
     public function admin_change_admin(){
         $data = \DB::table('tb_admin_user')->orderBy('id','desc')->paginate(5);
         $i = 1;
         return view('Admin.admin.admin.admin_change_admin')->with('data',$data)->with('i',$i);
     }
-    //管理员修改
-    public function admin_update(Request $request,$id){
-        $data = \DB::table('tb_admin_user')->where('id','=',$id)->first();
-        return view('Admin.admin.admin.admin_update')->with('data',$data);
-    }
-    //管理员校验姓名,不包括自己
-    public function checkname(Request $request){
-        $username = $request->input('username'); //接受返回的用户名
-        $id = $request->input('id');  //接受ajax返回的用户id
-        $user = \DB::table('tb_admin_user')->where('id','=',$id)->get(); //通过id查询
-        $uname = $user[0]->username;  //得到数据库的用户名
-        if($uname == $username){ //因为是修改,可以不改用户名,因为该用户名也在数据库
-            return '';
-        }else{
-            $data = \DB::table('tb_admin_user')->where('username','=',$username)->first();
-            if($data){ //如果存在
-                return '用户名已存在';    //如果后台报 500错误,可能跟return 的参数不支持或有问题
-            }else{
 
-            }
-        }
-    }
-    //管理员保存修改
-    public function adminup(Request $request){
-        $tb_admin_user = new tb_admin_user();
-        $tb_admin_user->id =$request->input('id');
-        $tb_admin_user->username= $request->input('username');
-        $tb_admin_user->password= $request->input('password');
-        $tb_admin_user->phone= $request->input('phone');
-        $tb_admin_user->email= $request->input('email');
-        $res = $tb_admin_user->save();
 
-//        $id = $request->input('id');
-//        $username = $request->input('username');
-//        $password= $request->input('password');
-//        $phone= $request->input('phone');
-//        $email= $request->input('email');
-//        $arr = [
-//            'id' =>$id,
-//            'username'=>$username,
-//            'password'=>$password,
-//            'phone'=>$phone,
-//            'email'=>$email,
-//        ];
-//        $res = \DB::table('tb_admin_user')->insert($arr);
-
-        if($res){
-            return 0;
-        }else{
-            return 1;
-        }
-
-    }
-
-    //添加管理员
+    //添加管理员 用户名验证
     public function adminadd(Request $request){
         $username = $request->input('username');
 
@@ -98,7 +48,7 @@ class AdminController extends Controller
       }else{
       }
     }
-    //添加管理员
+    //添加管理员 添加操作
     public function adminadds(Request $request){
         $tb_admin_user = new tb_admin_user();
         $username = $tb_admin_user->username= $request->input('username');
@@ -107,8 +57,13 @@ class AdminController extends Controller
         $tb_admin_user->email= $request->input('email');
         $res = $tb_admin_user->save();
 
+        //查询最后一条数据id号
+        $jilu = DB::select("SELECT * FROM tb_admin_user ORDER BY id DESC LIMIT 1");
+        $lastid = $jilu[0]->id;
+       //根据这个id查询刚刚存储的数据,这个id就表示刚刚添加的数据
+        $data = DB::table('tb_admin_user')->where('id','=',$lastid)->first();
         if($res){
-            return 0;
+            return view('Admin.admin.admin.admin_added_show')->with('data',$data);
         }else{
             return 1;
         }
@@ -139,6 +94,58 @@ class AdminController extends Controller
             return 0;
         }
     }
+
+    //管理员修改
+    public function admin_update(Request $request,$id){
+        $data = \DB::table('tb_admin_user')->where('id','=',$id)->first();
+        return view('Admin.admin.admin.admin_update')->with('data',$data);
+    }
+    //管理员校验姓名,不包括自己
+    public function checkname(Request $request){
+        $username = $request->input('username'); //接受返回的用户名
+        $id = $request->input('id');  //接受ajax返回的用户id
+        $user = \DB::table('tb_admin_user')->where('id','=',$id)->get(); //通过id查询
+        $uname = $user[0]->username;  //得到数据库的用户名
+        if($uname == $username){ //因为是修改,可以不改用户名,因为该用户名也在数据库
+            return '';
+        }else{
+            $data = \DB::table('tb_admin_user')->where('username','=',$username)->first();
+            if($data){ //如果存在
+                return '用户名已存在';    //如果后台报 500错误,可能跟return 的参数不支持或有问题
+            }else{
+
+            }
+        }
+    }
+
+    //管理员保存修改
+    public function adminup(Request $request,$id){
+        //找到需要修改的数据
+        $tb_admin_user = tb_admin_user::find($id);
+        //接受修改的值
+        $username = $request->input('username');
+
+        $password = $request->input('password');
+        $phone = $request->input('phone');
+        $email = $request->input('email');
+        if($tb_admin_user['username'] == $username && $tb_admin_user['password'] == $password && $tb_admin_user['phone'] == $phone && $tb_admin_user['email'] == $email){
+            return 1;
+        }else{
+
+            $tb_admin_user['username'] = $username;
+            $tb_admin_user['password'] = $password;
+            $tb_admin_user['phone'] = $phone;
+            $tb_admin_user['email'] = $email;
+            $res = $tb_admin_user->save();
+            if($res){
+                return 0;
+            }else{
+                return 1;
+            }
+
+        }
+    }
+
     //删除管理员
     public function del(Request $request){
         //获取删除的id
@@ -149,17 +156,8 @@ class AdminController extends Controller
         }else{
             return 0;
         }
-
 }
-
-
-    //管理员修改
-    public function admin_change(Request $request,$id){
-        $value = DB::table('tb_admin_user')->where('id','=',$id)->first();
-        return view('Admin.admin.admin.admin_change_message',['value'=>$value]);
-
-    }
-
+    /***********************管理员管理 增删改查**************************/
 
 
 

@@ -1,3 +1,4 @@
+@include('Common.admin_header')
 <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog" >
         <div class="modal-content">
@@ -41,11 +42,12 @@
                     </table>
                 </div>
                 <div class="modal-footer">
-                    <a href="javascript:;" onclick="update(this,{{$data->id}})" class="btn btn-success"  aria-hidden="true">保存</a>
-                    <button class="btn btn-default" data-dismiss="modal" aria-hidden="true">关闭</button>
+                    <input type="submit" class="btn btn-success" aria-hidden="true">保存</input>
+                    <button onclick="window.location.href='/item_cat/close'" class="btn btn-default" aria-hidden="true">关闭</button>
                 </div>
             </form>
         </div>
 
     </div>
 </div>
+@include('Common.admin_footer')

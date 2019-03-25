@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin\Goods;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
+use DB;
 class Item_catController extends Controller
 {
     /**
@@ -14,7 +14,8 @@ class Item_catController extends Controller
      */
     public function index()
     {
-        return view('Admin.admin.admin.item_cat');
+        $data = \DB::table('tb_item_cat')->get();
+        return view('Admin.admin.item_cat.item_cat')->with('data',$data);
     }
 
     /**
@@ -24,7 +25,7 @@ class Item_catController extends Controller
      */
     public function create()
     {
-        //
+        return view('Admin.admin.item_cat.item_add');
     }
 
     /**
@@ -57,7 +58,7 @@ class Item_catController extends Controller
      */
     public function edit()
     {
-        return view('Admin.admin.admin.item_cat_edit');
+        return view('Admin.admin.item_cat.item_cat_edit');
     }
 
     /**
@@ -80,6 +81,7 @@ class Item_catController extends Controller
      */
     public function destroy($id)
     {
-        //
+
     }
+
 }

@@ -45,7 +45,7 @@
                 </div>
                 <div class="modal-footer">
                     <button class="btn btn-success" data-dismiss="modal" aria-hidden="true">保存</button>
-                    <button class="btn btn-default" data-dismiss="modal" aria-hidden="true">关闭</button>
+                    <button onclick="window.location.href='/item_cat'" class="btn btn-default" data-dismiss="modal" aria-hidden="true">关闭</button>
                 </div>
             </div>
         </div>
