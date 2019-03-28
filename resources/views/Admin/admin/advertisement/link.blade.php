@@ -108,13 +108,14 @@
         });
         //通过ajax将id传到控制器
         $.get('/link/'+id+'/edit',{'id':id,'_method':'edit','_token':'{{csrf_token()}}'},function (data) {
-            // console.log(data); //data[0]表示数据的结果集
+            console.log(data); //data[0]表示数据的结果集
+
            var str= '';
         str += '<form action="/link/xiugai/'+data[0].id+'"  id="formupdate" method="post" onclick="return false" enctype="multipart/form-data" >'
             str += '{{csrf_field()}}';
             {{--str += '{{method_field('PUT')}}';--}}
-           str += ' <div class="modal-body">';
-          str += '<table class="table table-bordered table-striped" id="edittable"  width="800px">';
+            str += ' <div class="modal-body">';
+            str += '<table class="table table-bordered table-striped" id="edittable"  width="800px">';
             str += ' <tr>';
             str += '  <td>名称</td>';
             str += '    <td><input type="text" id="lkname" value="'+data[0].link_name+'" name="link_name" class="form-control" placeholder="" >  </td>'
@@ -127,9 +128,9 @@
             //
             str += '     <tr>';
             str += '   <td>图片</td>';
-            str += '<td><input id="pic"  onchange="preview1(this)"  type="file" value="选择图片" name="link_image" class="form-control" placeholder=""></td>';
+            str += '<td><input id="picc"  onchange="preview1(this)"  type="file" value="选择图片" name="link_image" class="form-control" placeholder=""></td>';
             str +='<td><label><img id="imagehidden" src="/Uploads/'+data[0].link_image+'" width="50px" height="30px" ></label> <span id="preview1"></span></td>';
-            // str += '<span id="prewiew1"></span>';
+            str += '<span id="prewiew1"></span>';
             str += '    </tr>';
             str += '    <tr>';
             str += '    <td><label for="timestart">有效期时间开始</label></td>';
@@ -155,8 +156,10 @@
                 $('#tihuan').html(str);
         });
     }
+
     //保存修改的数据
     function update(obj,id){
+
         //收集type=date的值
         $("#timestart").change(function(){
             $("#timestart").attr("value",$(this).val()); //赋值
@@ -167,10 +170,10 @@
             $("#timeend").attr("value",$(this).val()); //赋值
         });
         var eT = $('#timeend').val();
-
+   console.log($('#picc').val()); //图片磁盘路径
         var linkname = $('#lkname').val();
         var linklink = $('#lklk').val();
-        var filedata = $('#pic')[0].files[0];
+        var filedata = $('#picc')[0].files[0];
         var fromData = new FormData($('#formupdate')[0]);
         fromData.append("id", id);
         fromData.append("linkname", linkname);
@@ -178,7 +181,7 @@
         fromData.append("sT", sT);
         fromData.append("eT", eT);
         fromData.append("file", filedata);
-        console.log(linkname);
+        // console.log(linkname);
         console.log(linklink);
         console.log(sT);
         console.log(eT);

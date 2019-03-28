@@ -28,6 +28,7 @@ class Item_catController extends Controller
      */
     public function index()
     {
+
 //
         return view('Admin.admin.item_cat.item_cat')->with('data',self::getCates());
     }
@@ -37,11 +38,13 @@ class Item_catController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        $tb_item_cats = tb_item_cat::all();
+        $id = $request->input('id');
+        dump($id);
+//        $tb_item_cats = tb_item_cat::all();
 //        dump($tb_item_cats);
-        return view('Admin.admin.item_cat.item_add',['tb_item_cats'=>$tb_item_cats]);
+        return view('Admin.admin.item_cat.item_add',['id'=>$id,'tb_item_cats'=>self::getCates()]);
     }
 
     /**

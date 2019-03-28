@@ -22,11 +22,17 @@
 			<div class="py-container">
 				<div class="shortcut">
 					<ul class="fl">
-						<li class="f-item">品优购欢迎您！</li>
-						<li class="f-item">请<a href="/login" target="_blank">登录</a>　<span><a href="/register" target="_blank">免费注册</a></span></li>
+
+						@if(session('username') != '')
+							<li class="f-item">品优购欢迎您！</li> 尊敬的{{session('username')}}您好,<a href="/index/loginout" target="_blank">注销</a></span></li>
+						@else
+							<li class="f-item">品优购欢迎您！</li><li class="f-item">请<a href="/login" target="_blank">登录</a>　<span><a href="/register" target="_blank">免费注册</a></span></li>
+						@endif
 					</ul>
 					<ul class="fr">
+						@if(session('username') != '')
 						<li class="f-item"><a href="/home" target="_blank">我的订单</a></li>
+						@endif
 						<li class="f-item space"></li>
 						<li class="f-item"><a href=".blade.php" target="_blank">我的品优购</a></li>
 						<li class="f-item space"></li>
@@ -1379,7 +1385,7 @@
 	</div>
 </script>
 <!--侧栏面板结束-->
-<script type="text/javascript" src="js/plugins/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="/style/js/plugins/jquery/jquery.min.js"></script>
 <script type="text/javascript">
 $(function(){
 	$("#service").hover(function(){
@@ -1395,14 +1401,14 @@ $(function(){
 
 })
 </script>
-<script type="text/javascript" src="js/model/cartModel.js"></script>
-<script type="text/javascript" src="js/czFunction.js"></script>
-<script type="text/javascript" src="js/plugins/jquery.easing/jquery.easing.min.js"></script>
-<script type="text/javascript" src="js/plugins/sui/sui.min.js"></script>
-<script type="text/javascript" src="js/pages/index.js"></script>
-<script type="text/javascript" src="js/widget/cartPanelView.js"></script>
-<script type="text/javascript" src="js/widget/jquery.autocomplete.js"></script>
-<script type="text/javascript" src="js/widget/nav.js"></script>
+<script type="text/javascript" src="/style/js/model/cartModel.js"></script>
+<script type="text/javascript" src="/style/js/czFunction.js"></script>
+<script type="text/javascript" src="/style/js/plugins/jquery.easing/jquery.easing.min.js"></script>
+<script type="text/javascript" src="/style/js/plugins/sui/sui.min.js"></script>
+<script type="text/javascript" src="/style/js/pages/index.js"></script>
+<script type="text/javascript" src="/style/js/widget/cartPanelView.js"></script>
+<script type="text/javascript" src="/style/js/widget/jquery.autocomplete.js"></script>
+<script type="text/javascript" src="/style/js/widget/nav.js"></script>
 </body>
 
 

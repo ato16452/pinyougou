@@ -23,7 +23,7 @@
                         <select option="" name="parent_id">
                             <option value="0">--请选择--</option>
                            @foreach($tb_item_cats as $k=>$v)
-                               <option value="{{$v->id}}">{{$v->name}}</option>
+                               <option @if($id == $v->id) selected @endif value="{{$v->id}}">{{$v->name}}</option>
                             @endforeach
                         </select>
 
@@ -32,7 +32,7 @@
             </div>
             <div class="modal-footer">
                 <input type="submit" class="btn btn-success"  aria-hidden="true">
-                <button onclick="window.location.href='/item_cat'" class="btn btn-default" data-dismiss="modal" aria-hidden="true">关闭</button>
+                <a onclick="window.location.href='/item_cat'" class="btn btn-default" data-dismiss="modal" aria-hidden="true">关闭</a>
             </div>
             </form>
         </div>

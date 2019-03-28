@@ -1,14 +1,19 @@
 @include('Common.admin_header')
-@if(!empty(session('success')))
-    　　<div class="alert alert-success" role="alert">
-        　　　　{{session('success')}}
-        　　</div>
+@if (count($errors) > 0)
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
 @endif
-@if(!empty(session('error')))
-    　　<div class="alert alert-danger" role="alert">
-        　　　　{{session('error')}}
-        　　</div>
+@if (session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
 @endif
+
 
 <body class="hold-transition skin-red sidebar-mini" >
     <!-- .box-body -->
@@ -62,7 +67,7 @@
                         <td>{{$value->parent_id}}</td>
                         <td>{{$value->path}}</td>
                         <td class="text-center">
-                            <a type="button" href="/item_cat/create" class="btn bg-olive btn-xs" data-toggle="modal">添加子分类</a>
+                            <a type="button" href="/item_cat/create?id={{$value->id}}" class="btn bg-olive btn-xs" data-toggle="modal">添加子分类</a>
                             <a href="/item_cat_edit" class="btn bg-olive btn-xs">修改</a>
                             <form action="/item_cat/{{$value->id}}" method="post" style="display: inline-block;">
                                 {{csrf_field()}}

@@ -22,7 +22,7 @@ class UserController extends Controller
         //无刷新分页
         //计算数据总条数
         $tot = \DB::table('tb_user')->count();
-        $length = 2;
+        $length = 5;
         //计算总页数
         $page = ceil($tot/$length);
         /********1******/
