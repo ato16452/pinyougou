@@ -1071,10 +1071,12 @@
 	<div class="brand">
 		<div class="py-container">
 			<ul class="Brand-list blockgary">
+				@foreach($data as $k=>$v)
 				<li class="Brand-item">
-					<img src="/style/img/brand_21.png" />
+					<img src="/Uploads/link_image/+'{{ $v->link_image }}'" />
 				</li>
-				<li class="Brand-item"><img src="/style/img/brand_03.png" /></li>
+				@endforeach
+				<!-- <li class="Brand-item"><img src="/style/img/brand_03.png" /></li>
 				<li class="Brand-item"><img src="/style/img/brand_05.png" /></li>
 				<li class="Brand-item"><img src="/style/img/brand_07.png" /></li>
 				<li class="Brand-item"><img src="/style/img/brand_09.png" /></li>
@@ -1082,7 +1084,7 @@
 				<li class="Brand-item"><img src="/style/img/brand_13.png" /></li>
 				<li class="Brand-item"><img src="/style/img/brand_15.png" /></li>
 				<li class="Brand-item"><img src="/style/img/brand_17.png" /></li>
-				<li class="Brand-item"><img src="/style/img/brand_19.png" /></li>
+				<li class="Brand-item"><img src="/style/img/brand_19.png" /></li> -->
 			</ul>
 		</div>
 	</div>

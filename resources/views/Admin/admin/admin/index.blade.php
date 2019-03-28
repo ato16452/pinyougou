@@ -321,11 +321,11 @@
                         </a>
                         <ul class="treeview-menu">
 
-                            <li id="admin-login">
-                                <a href="/admin/admin_change_message" target="iframe">
-                                    <i class="fa fa-circle-o"></i>修改资料
-                                </a>
-                            </li>
+                            {{--<li id="admin-login">--}}
+                                {{--<a href="/admin/admin_change_message" target="iframe">--}}
+                                    {{--<i class="fa fa-circle-o"></i>修改资料--}}
+                                {{--</a>--}}
+                            {{--</li>--}}
                             <li id="admin-login">
                                 <a href="/admin/admin_change_admin" target="iframe">
                                     <i class="fa fa-circle-o"></i>管理员管理

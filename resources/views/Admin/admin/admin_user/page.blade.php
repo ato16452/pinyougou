@@ -1,61 +1,36 @@
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Document</title>
-    <script src="/admin/plugins/jQuery/jquery-2.2.3.min.js"></script>
-</head>
-<body>
-<div id="box">
-    <!-- 第一部分 -->
-    <a href="javascript:void(0)" onclick="page(1)">首页</a>
-    <a href="javascript:void(0)" onclick="page(<?php echo $prev ?>)">上一页</a>
-    <a href="javascript:void(0)" onclick="page(<?php echo $next ?>)">下一页</a>
-    <a href="javascript:void(0)" onclick="page(<?php echo $sums ?>)">尾页</a><br />
-    <!-- 第二部分 -->
-    @foreach($pp as $key=>$val)
-        @if($val == $page)
-            {{$val}}
-        @else
-            <a href="javascript:void(0)" onclick="page({{$val}})">{{$val}}</a>
-    @endif
-@endforeach
-<!-- 表 -->
-    <table border="1" id="">
-        <tr>
-            <td>序号</td>
-            <td>名称</td>
-            <td>时间</td>
-        </tr>
-        @foreach($data as $val)
-            <tr>
-                <td>{{$val->id}}</td>
-                <td>{{$val->username}}</td>
-                <td>{{$val->password}}</td>
+<table id="dataList" class="table table-bordered table-striped table-hover dataTable">
+    <thead>
+    <tr>
+        <th class="" style="padding-right:0px">
+            <input id="selall" type="checkbox" class="icheckbox_square-blue">
+        </th>
+        <th class="sorting_asc">ID</th>
+        <th class="sorting">用户名</th>
+        <th class="sorting">密码</th>
+        <th class="sorting">图片</th>
+        <th class="text-center">手机号</th>
+        <th class="text-center">邮箱</th>
+        <th class="text-center">操作</th>
+    </tr>
+    </thead>
+    <form action="" method="post" enctype="multipart/form-data">
+        {{csrf_field()}}
+        <tbody>
+        @foreach($data as $k =>$v)
+            <tr id="tr{{$v->id}}">
+                <td><input  type="checkbox" value="{{$v->id}}" class="inputs"></td>
+                <td>{{$v->id}}</td>
+                <td>{{$v->username}}</td>
+                <td>{{$v->password}}</td>
+                <td><img src="/Uploads/{{$v->img}}" width="40px" height="20px"></td>
+                <td>{{$v->phone}}</td>
+                <td>{{$v->email}}</td>
+                <td class="text-center">
+                    <a  href="/user/{{$v ->id}}/edit"  onclick="update(this,{{$v->id}})" class="btn bg-olive btn-xs" data-toggle="modal" data-target="#editModal"  >修改</a>
+                    <a class="btn bg-olive btn-xs"    onclick="del(this,{{$v->id}})" href="javascript:;">删除</a>
+                </td>
             </tr>
         @endforeach
-    </table>
-</div>
-</body>
-</html>
-<script>
-    /*
-    @分页
-    */
-    function page(page){
-        $.ajax({
-            type:"get",
-            url:"/fenye/page_pro",
-            data:{
-                page:page
-            },
-            success:function(msg){
-                if(msg){
-                    $("#box").html(msg)
-                }
-            }
-        })
-    }
-</script><span id="transmark" style="display: none; width: 0px; height: 0px;"></span>
-
+        </tbody>
+    </form>
+</table>

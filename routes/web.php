@@ -70,6 +70,7 @@ Route::get('type_template_edit','Admin\Goods\Type_templateController@edit');
 //分类管理  item_cat.blade.php
 Route::resource('item_cat','Admin\Goods\Item_catController');
 Route::get('item_cat_edit','Admin\Goods\Item_catController@edit');
+Route::get('/item/close','Admin\Goods\Item_catController@close');
 // Route::get('/admin/item_cat','Admin\AdminController@item_cat');
 //商品审核  goods.blade.php
 Route::get('/admin/goods','Admin\AdminController@goods');
