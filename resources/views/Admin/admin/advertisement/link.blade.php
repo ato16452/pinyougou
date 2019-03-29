@@ -108,6 +108,7 @@
         });
         //通过ajax将id传到控制器
         $.get('/link/'+id+'/edit',{'id':id,'_method':'edit','_token':'{{csrf_token()}}'},function (data) {
+<<<<<<< HEAD
             // console.log(data); //data[0]表示数据的结果集
            var str= '';
         str += '<form action="/link/xiugai/'+data[0].id+'"  id="formupdate" method="post" onclick="return false" enctype="multipart/form-data" >'
@@ -120,6 +121,21 @@
             str += '    <td><input type="text" id="lkname" value="'+data[0].link_name+'" name="link_name" class="form-control" placeholder="" >  </td>'
             str += '  </tr>';
 
+=======
+            console.log(data); //data[0]表示数据的结果集
+
+           var str= '';
+        str += '<form action="/link/xiugai/'+data[0].id+'"  id="formupdate" method="post" onclick="return false" enctype="multipart/form-data" >'
+            str += '{{csrf_field()}}';
+            {{--str += '{{method_field('PUT')}}';--}}
+            str += ' <div class="modal-body">';
+            str += '<table class="table table-bordered table-striped" id="edittable"  width="800px">';
+            str += ' <tr>';
+            str += '  <td>名称</td>';
+            str += '    <td><input type="text" id="lkname" value="'+data[0].link_name+'" name="link_name" class="form-control" placeholder="" >  </td>'
+            str += '  </tr>';
+
+>>>>>>> 123c4be758302e56c1178f254eea366b843761c8
             str += '  <tr>';
             str += '   <td>链接</td>';
             str += ' <td><input  type="text" name="link" id="lklk" value="'+data[0].link+'" class="form-control" placeholder="">  </td>';
@@ -127,9 +143,15 @@
             //
             str += '     <tr>';
             str += '   <td>图片</td>';
+<<<<<<< HEAD
             str += '<td><input id="pic"  onchange="preview1(this)"  type="file" value="选择图片" name="link_image" class="form-control" placeholder=""></td>';
             str +='<td><label><img id="imagehidden" src="/Uploads/'+data[0].link_image+'" width="50px" height="30px" ></label> <span id="preview1"></span></td>';
             // str += '<span id="prewiew1"></span>';
+=======
+            str += '<td><input id="picc"  onchange="preview1(this)"  type="file" value="选择图片" name="link_image" class="form-control" placeholder=""></td>';
+            str +='<td><label><img id="imagehidden" src="/Uploads/'+data[0].link_image+'" width="50px" height="30px" ></label> <span id="preview1"></span></td>';
+            str += '<span id="prewiew1"></span>';
+>>>>>>> 123c4be758302e56c1178f254eea366b843761c8
             str += '    </tr>';
             str += '    <tr>';
             str += '    <td><label for="timestart">有效期时间开始</label></td>';
@@ -155,8 +177,15 @@
                 $('#tihuan').html(str);
         });
     }
+<<<<<<< HEAD
     //保存修改的数据
     function update(obj,id){
+=======
+
+    //保存修改的数据
+    function update(obj,id){
+
+>>>>>>> 123c4be758302e56c1178f254eea366b843761c8
         //收集type=date的值
         $("#timestart").change(function(){
             $("#timestart").attr("value",$(this).val()); //赋值
@@ -167,10 +196,17 @@
             $("#timeend").attr("value",$(this).val()); //赋值
         });
         var eT = $('#timeend').val();
+<<<<<<< HEAD
 
         var linkname = $('#lkname').val();
         var linklink = $('#lklk').val();
         var filedata = $('#pic')[0].files[0];
+=======
+   console.log($('#picc').val()); //图片磁盘路径
+        var linkname = $('#lkname').val();
+        var linklink = $('#lklk').val();
+        var filedata = $('#picc')[0].files[0];
+>>>>>>> 123c4be758302e56c1178f254eea366b843761c8
         var fromData = new FormData($('#formupdate')[0]);
         fromData.append("id", id);
         fromData.append("linkname", linkname);
@@ -178,7 +214,11 @@
         fromData.append("sT", sT);
         fromData.append("eT", eT);
         fromData.append("file", filedata);
+<<<<<<< HEAD
         console.log(linkname);
+=======
+        // console.log(linkname);
+>>>>>>> 123c4be758302e56c1178f254eea366b843761c8
         console.log(linklink);
         console.log(sT);
         console.log(eT);
@@ -258,6 +298,7 @@
                     <tr>
                         <td>图片</td>
                         <td><input  type="file" name="link_image" class="form-control" placeholder="">  </td>
+<<<<<<< HEAD
                     </tr>
                     <tr>
                         <td><label for="startTime">有效期时间开始</label></td>
@@ -266,6 +307,16 @@
                         </td>
                     </tr>
                     <tr>
+=======
+                    </tr>
+                    <tr>
+                        <td><label for="startTime">有效期时间开始</label></td>
+                        <td>
+                            <input type="date" name="startTime" id=""><span id="spanTime3"></span>
+                        </td>
+                    </tr>
+                    <tr>
+>>>>>>> 123c4be758302e56c1178f254eea366b843761c8
                         <td><label for="endTime">有效期时间结束</label></td>
                         <td>
                             <input type="date" name="endTime" id=""><span id="spanTime4"></span>
@@ -393,6 +444,7 @@
             }
         });
     });
+<<<<<<< HEAD
 
     // 上传图片时,展示图片
     function preview(file){
@@ -419,6 +471,34 @@
 
     {{--$("#btsubmit").submit(function () {--}}
 
+=======
+
+    // 上传图片时,展示图片
+    function preview(file){
+        if (file.files && file.files[0]){
+            var reader = new FileReader();
+            reader.onload = function(evt){
+                $("#preview").html('<img src="' + evt.target.result + '" width="95px" height="50px" />');
+            }
+            reader.readAsDataURL(file.files[0]);
+        }else{
+            $("#preview").html('<div style="filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=scale,src=\'' + file.value + '\'"></div>');
+        }
+    }
+
+    // var form = document.querySelector('#linkform');
+    // var Data = new FormData(form);
+    // var formData = Data.get("link_image");
+    // console.log(formData);
+    // $.ajaxSetup({
+    //     headers: {
+    //         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    //     }
+    // });
+
+    {{--$("#btsubmit").submit(function () {--}}
+
+>>>>>>> 123c4be758302e56c1178f254eea366b843761c8
         {{--//获取type="date"的值--}}
         {{--$("#startTime").change(function(){--}}
             {{--$("#startTime").attr("value",$(this).val()); //赋值--}}

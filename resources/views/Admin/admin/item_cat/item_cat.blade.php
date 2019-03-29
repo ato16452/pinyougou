@@ -1,4 +1,5 @@
 @include('Common.admin_header')
+<<<<<<< HEAD
 @if(!empty(session('success')))
     　　<div class="alert alert-success" role="alert">
         　　　　{{session('success')}}
@@ -10,6 +11,24 @@
         　　</div>
 @endif
 
+=======
+@if (count($errors) > 0)
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+@if (session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+@endif
+
+
+>>>>>>> 123c4be758302e56c1178f254eea366b843761c8
 <body class="hold-transition skin-red sidebar-mini" >
     <!-- .box-body -->
     <div class="box-header with-border">
@@ -62,7 +81,11 @@
                         <td>{{$value->parent_id}}</td>
                         <td>{{$value->path}}</td>
                         <td class="text-center">
+<<<<<<< HEAD
                             <a type="button" href="/item_cat/create" class="btn bg-olive btn-xs" data-toggle="modal">添加子分类</a>
+=======
+                            <a type="button" href="/item_cat/create?id={{$value->id}}" class="btn bg-olive btn-xs" data-toggle="modal">添加子分类</a>
+>>>>>>> 123c4be758302e56c1178f254eea366b843761c8
                             <a href="/item_cat_edit" class="btn bg-olive btn-xs">修改</a>
                             <form action="/item_cat/{{$value->id}}" method="post" style="display: inline-block;">
                                 {{csrf_field()}}

@@ -9,6 +9,7 @@ use App\Models\tb_item_cat;
 class Item_catController extends Controller
 {
 <<<<<<< HEAD
+<<<<<<< HEAD
     // public function __construct()
     // {
     //     $this->request = request();
@@ -22,6 +23,8 @@ class Item_catController extends Controller
     //     });
     // }
 =======
+=======
+>>>>>>> 123c4be758302e56c1178f254eea366b843761c8
     public static function getCates(){
 //        $data = \DB::select("select *,concat(path,',',id) as paths from tb_item_cat order by paths");
         //模型查询写法
@@ -35,7 +38,10 @@ class Item_catController extends Controller
         return $data;
     }
 
+<<<<<<< HEAD
 >>>>>>> 56dee3a76e171b1f8fac256483ca57eeb8334cfd
+=======
+>>>>>>> 123c4be758302e56c1178f254eea366b843761c8
     /**
      * Display a listing of the resource.
      *
@@ -43,6 +49,10 @@ class Item_catController extends Controller
      */
     public function index()
     {
+<<<<<<< HEAD
+=======
+
+>>>>>>> 123c4be758302e56c1178f254eea366b843761c8
 //
         return view('Admin.admin.item_cat.item_cat')->with('data',self::getCates());
     }
@@ -52,11 +62,19 @@ class Item_catController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
+<<<<<<< HEAD
         $tb_item_cats = tb_item_cat::all();
 //        dump($tb_item_cats);
         return view('Admin.admin.item_cat.item_add',['tb_item_cats'=>$tb_item_cats]);
+=======
+        $id = $request->input('id');
+        dump($id);
+//        $tb_item_cats = tb_item_cat::all();
+//        dump($tb_item_cats);
+        return view('Admin.admin.item_cat.item_add',['id'=>$id,'tb_item_cats'=>self::getCates()]);
+>>>>>>> 123c4be758302e56c1178f254eea366b843761c8
     }
 
     /**

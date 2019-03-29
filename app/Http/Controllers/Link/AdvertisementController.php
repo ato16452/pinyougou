@@ -222,8 +222,14 @@ class AdvertisementController extends Controller
     }
     public function xiugai(Request $request,$id){
         if ($request->method() == 'post') {
+<<<<<<< HEAD
             $file = $request->file('file');
         };
+=======
+            $file = $request->file('link_image');
+        };
+
+>>>>>>> 123c4be758302e56c1178f254eea366b843761c8
         if ($file->isValid()) {
             $ext = $file->guessClientExtension(); //获取后缀
             $type = $file->getClientMimeType(); //后去文件类型
@@ -240,6 +246,7 @@ class AdvertisementController extends Controller
         $tb_links = new tb_links();
 
         //获取ajax返回的参数
+<<<<<<< HEAD
         $id = $tb_links->id = $request->input('id');
         $linkname =  $tb_links->link_name = $request->input('linkname');
         $linklink =  $tb_links->link = $request->input('linklink');
@@ -257,6 +264,27 @@ class AdvertisementController extends Controller
         $tb_links->endTime = $eT;
         $tb_links->link_image = $path;
         $res = $tb_links->save();
+=======
+        $id =  $request->input('id');
+        $linkname =  $request->input('linkname');
+        $linklink =   $request->input('linklink');
+        $sT =  $request->input('sT');
+        $eT =   $request->input('eT');
+        $path =  $tb_links->link_image = $request->input('link_image',$name);
+        //修改数据
+       $data =  $tb_links::find($id); //
+
+        $oldimagepath = $data->link_image; //查询原图
+        unlink('Uploads/'.$oldimagepath); //删除原图
+
+        $data->link_name = $linkname;
+        $data->link = $linklink;
+        $data->startTime = $sT;
+        $data->endTime = $eT;
+//        $tb_links->link_image = $path;
+        $res = $data->save();
+//        return $res;
+>>>>>>> 123c4be758302e56c1178f254eea366b843761c8
         if($res){
             return 0;
         }else{

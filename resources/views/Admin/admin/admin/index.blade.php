@@ -425,7 +425,7 @@
 				        <ul class="treeview-menu">
 				
 				            <li id="admin-login">
-				                <a href="/admin/content_category" target="iframe">
+				                <a href="/chart" target="iframe">
 				                    <i class="fa fa-circle-o"></i>广告类型管理
 				                </a>
 				            </li>

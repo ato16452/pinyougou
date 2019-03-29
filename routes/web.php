@@ -14,6 +14,7 @@
 Route::get('/', function () {
     return view('/Home/index');
 });
+Route::get('/index','Home\IndexController@index');
 //登陆页面
 //Route::get('/admin/login','Admin\AdminController@login');
 /*************************************运营商后台页面显示**********************************/
@@ -103,6 +104,11 @@ Route::get('/seller/seller','Seller\SellerController@seller');
 Route::get('/seller/password','Seller\SellerController@password');
 //新增商品  goods_edit.blade.php
 Route::get('/seller/goods_edit','Seller\SellerController@goods_edit');
+Route::post('/seller/goods_edit/two','Seller\SellerController@two');
+Route::post('/seller/goods_edit/three','Seller\SellerController@three');
+Route::post('/seller/brand','Seller\SellerController@brand');
+// goods.blade.php
+Route::post('/goods/goods','Seller\GoodsaddController@add');
 //商品管理 goods.blade.php
 Route::get('/seller/goods','Seller\SellerController@goods');
 //登录注册页面  shoplogin.blade.php
@@ -134,7 +140,8 @@ Route::get('/pay', function () {
 // });
 // 登录
 Route::get('/login', function () {
-    return view('/Home/login');
+
+    return view('/Home/register/login');
 });
 // 商品详情
 Route::get('/item', function () {
@@ -144,6 +151,8 @@ Route::get('/item', function () {
 Route::get('/home', function () {
     return view('/Home/home-index');
 });
+Route::get('/index/loginout','Home\IndexController@loginout');
+
 
 /*************前台页面显示结束***************/
 
@@ -151,3 +160,12 @@ Route::get('/home', function () {
 /*************前台路由显示***************/
 Route::get('/register','Home\RegisterController@index');
 Route::post('/register/insert','Home\RegisterController@insert');
+Route::post('/register/add','Home\RegisterController@add'); //执行添加
+Route::post('/register/check','Home\RegisterController@check');
+
+
+
+
+// 轮播图
+Route::resource('chart','Admin\ChartController');
+Route::get('chart_edit','Admin\ChartController@edit');

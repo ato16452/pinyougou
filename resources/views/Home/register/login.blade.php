@@ -36,10 +36,10 @@
 					<div class="tab-content tab-wraped">
 						<div id="index" class="tab-pane">
 							<p>二维码登录，暂为官网二维码</p>
-							<img src="img/wx_cz.jpg" />
+							<img src="/style/img/wx_cz.jpg" />
 						</div>
 						<div id="profile" class="tab-pane  active">
-							<form class="sui-form">
+							<form action="" method="post" class="sui-form">
 								<div class="input-prepend"><span class="add-on loginname"></span>
 									<input id="prependedInput" type="text" placeholder="邮箱/用户名/手机号" class="span2 input-xfat">
 								</div>
@@ -60,10 +60,10 @@
 							<div class="otherlogin">
 								<div class="types">
 									<ul>
-										<li><img src="img/qq.png" width="35px" height="35px" /></li>
-										<li><img src="img/sina.png" /></li>
-										<li><img src="img/ali.png" /></li>
-										<li><img src="img/weixin.png" /></li>
+										<li><img src="/style/img/qq.png" width="35px" height="35px" /></li>
+										<li><img src="/style/img/sina.png" /></li>
+										<li><img src="/style/img/ali.png" /></li>
+										<li><img src="/style/img/weixin.png" /></li>
 									</ul>
 								</div>
 								<span class="register"><a href="/register" target="_blank">立即注册</a></span>

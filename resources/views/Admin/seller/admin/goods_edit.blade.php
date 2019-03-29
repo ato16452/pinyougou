@@ -8,23 +8,18 @@
     <title>商品编辑</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" name="viewport">
-  
+	<meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="stylesheet" href="/seller/plugins/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="/seller/plugins/adminLTE/css/AdminLTE.css">
     <link rel="stylesheet" href="/seller/plugins/adminLTE/css/skins/_all-skins.min.css">
     <link rel="stylesheet" href="/seller/css/style.css">
 	<script src="/seller/plugins/jQuery/jquery-2.2.3.min.js"></script>
     <script src="/seller/plugins/bootstrap/js/bootstrap.min.js"></script>
-    
+
     <!-- 富文本编辑器 -->
 	<link rel="stylesheet" href="/seller/plugins/kindeditor/themes/default/default.css" />
 	<script charset="utf-8" src="/seller/plugins/kindeditor/kindeditor-min.js"></script>
 	<script charset="utf-8" src="/seller/plugins/kindeditor/lang/zh_CN.js"></script>
-    
-    
-      
-    
-    
 </head>
 
 <body class="hold-transition skin-red sidebar-mini" >
@@ -66,18 +61,24 @@
 		                           	  	<table>
 		                           	  		<tr>
 		                           	  			<td>
-		                           	  				<select class="form-control" >														
-		                           	  				</select>
+		                           	  				<select class="form-control" onchange="change2(this)" id="one" >
+														<option value="">--请选择--</option>
+														@foreach($data as $k=>$v)
+														<option value="{{$v->id}}">{{$v->name}}</option>
+														@endforeach
+													</select>
 		                              			</td>
 		                              			<td>
-		                           	  				<select class="form-control select-sm" ></select>
+		                           	  				<select class="form-control select-sm" onchange="change3(this)" id="two">
+														<option>--请选择--</option>
+													</select>
 		                              			</td>
 		                              			<td>
-		                           	  				<select class="form-control select-sm" ></select>
+		                           	  				<select class="form-control select-sm"  id="three">
+														<option>--请选择--</option>
+													</select>
 		                              			</td>
-		                              			<td>
-		                           	  				模板ID:19
-		                              			</td>
+
 		                           	  		</tr>
 		                           	  	</table>
 		                              	
@@ -86,41 +87,46 @@
 									
 		                           <div class="col-md-2 title">商品名称</div>
 		                           <div class="col-md-10 data">
-		                               <input type="text" class="form-control"    placeholder="商品名称" value="">
+		                               <input type="text" id="goods_name" name="goods_name" class="form-control"    placeholder="商品名称" value="">
 		                           </div>
 		                           
 		                           <div class="col-md-2 title">品牌</div>
 		                           <div class="col-md-10 data">
-		                              <select class="form-control" ></select>
+		                              <select class="form-control"  onchange="change4()" id="brand">
+										  <option value="">--请选择--</option>
+										  @foreach($brand as $k=>$v)
+											  <option value="{{$v->id}}">{{$v->name}}</option>
+										  @endforeach
+									  </select>
 		                           </div>
 		
 								   <div class="col-md-2 title">副标题</div>
 		                           <div class="col-md-10 data">
-		                               <input type="text" class="form-control"   placeholder="副标题" value="">
+		                               <input type="text" id="caption" name="caption" class="form-control"   placeholder="副标题" value="">
 		                           </div>
 		                           
 		                           <div class="col-md-2 title">价格</div>
 		                           <div class="col-md-10 data">
 		                           	   <div class="input-group">
 			                          	   <span class="input-group-addon">¥</span>
-			                               <input type="text" class="form-control"  placeholder="价格" value="">
+			                               <input type="text" class="form-control" id="price" name="price"  placeholder="价格" value="">
 		                           	   </div>
 		                           </div>
 		                           
 		                           <div class="col-md-2 title editer">商品介绍</div>
                                    <div class="col-md-10 data editer">
-                                       <textarea name="content" style="width:800px;height:400px;visibility:hidden;" ></textarea>
+                                       <textarea name="content" id="introduction" style="width:800px;height:400px;visibility:hidden;" ></textarea>
                                    </div>
 		                           
 		                           <div class="col-md-2 title rowHeight2x">包装列表</div>
 		                           <div class="col-md-10 data rowHeight2x">
 		                               
-		                           	<textarea rows="4"  class="form-control"   placeholder="包装列表"></textarea>
+		                           	<textarea rows="4" name="package_list" id="package_list" class="form-control"   placeholder="包装列表"></textarea>
 		                           </div>
 		                           
 		                           <div class="col-md-2 title rowHeight2x">售后服务</div>
 		                           <div class="col-md-10 data rowHeight2x">
-		                               <textarea rows="4"  class="form-control"    placeholder="售后服务"></textarea>
+		                               <textarea rows="4" name="sale_service" class="form-control" id="sale_service"   placeholder="售后服务"></textarea>
 		                           </div>                        
                                   
                                     
@@ -342,7 +348,7 @@
                  	
                    </div>
                   <div class="btn-toolbar list-toolbar">
-				      <button class="btn btn-primary" ><i class="fa fa-save"></i>保存</button>
+				      <a href="javascript:;" id="baocun" class="btn btn-primary" ><i class="fa fa-save"></i>保存</a>
 				      <button class="btn btn-default" >返回列表</button>
 				  </div>
 			
@@ -404,8 +410,71 @@
 		});
 	});
 
-</script>
-       
-</body>
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
 
+    var editor=KindEditor.create('#introduction');
+    var html=editor.html();
+	var goods_name = $('#goods_name').val();
+	var caption = $('#caption').val();
+	var price = $('#price').val();
+	$('#baocun').click(function () {
+		$.post('/goods/goods',{'goods_name':goods_name,'html':html,'caption':caption,'price':price},function (data) {
+
+        })
+    })
+
+</script>
+<script>
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+//当一级分类发生变化时
+	function change2(obj) {
+        $('#two option:gt(0)').remove();
+        $('#three option:gt(0)').remove();
+	    //获取选择的value值,即一级分类id
+      id  =  $("#one").val();
+        // alert(id);
+		$.post('/seller/goods_edit/two',{'id':id},function (data) {
+		    // console.log(data);
+			var str = '';
+			for(var i= 0;i < data.length;i++){
+			    str += '<option value="'+data[i].id+'">';
+                str += data[i].name;
+                str += '</option>';
+			}
+			$('#two').append(str);
+        });
+    }
+    //当二级分类发生变化时
+    function change3() {
+        $('#three option:gt(0)').remove();
+	    //alert(1);
+	    //获取change1方法里传递的 一级分类的id
+        id  =  $("#two").val();
+        $.post('/seller/goods_edit/three',{'id':id},function (data) {
+            // console.log(data);
+
+            var str2 = '';
+            for(var i= 0;i < data.length;i++){
+                str2 += '<option value="'+data[i].id+'">';
+                str2 += data[i].name;
+                str2 += '</option>';
+            }
+            $('#three').append(str2);
+        });
+
+    }
+</script>
+<script>
+
+</script>
+
+</body>
 </html>
